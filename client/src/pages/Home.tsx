@@ -91,14 +91,14 @@ const productDepth = [
 ];
 
 const processSteps = [
-  ["01", "Arrival", "Raw material arrives at our Mahuva facility."],
-  ["02", "Grading", "Every lot is graded for size, colour and quality."],
-  ["03", "Washing", "A careful wash keeps the natural character intact."],
-  ["04", "Slicing", "Uniform cuts help every piece dry consistently."],
-  ["05", "Drying", "Controlled dehydration locks in colour and aroma."],
-  ["06", "Cooling", "Product rests until it reaches the right stability."],
-  ["07", "Sorting", "Separation and sorting create a clean, even batch."],
-  ["08", "Packing", "Sealed, stored and ready for its next kitchen."],
+  ["01", "Arrival of Raw Material", "Freshly harvested onions sourced directly from Mahuva farms"],
+  ["02", "Grading", "Inspected for size, quality and defects before processing"],
+  ["03", "Washing", "Multi-stage cleaning removes impurities, ensures hygiene"],
+  ["04", "Slicing", "Uniformly sliced for consistent drying and product quality"],
+  ["05", "Drying", "Controlled temperature and airflow preserves colour and nutrients"],
+  ["06", "Cooling", "Air-conditioned conveyor room maintains integrity post-drying"],
+  ["07", "Separation & Sorting", "Huller machine removes skins; defective pieces sorted out"],
+  ["08", "Packaging & Storage", "Moisture-proof packing in temperature-controlled storage"],
 ];
 
 const pillars: { icon: LucideIcon; title: string; copy: string }[] = [
@@ -120,7 +120,7 @@ const particleDots = [
   { left: "78%", top: "88%", size: 5, color: "gold" },
 ];
 
-function Reveal({ children, className = "", delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
+function Reveal({ children, className = "", delay = 0, style }: { children: ReactNode; className?: string; delay?: number; style?: CSSProperties }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -141,7 +141,7 @@ function Reveal({ children, className = "", delay = 0 }: { children: ReactNode; 
   }, []);
 
   return (
-    <div ref={ref} className={`reveal ${visible ? "is-visible" : ""} ${className}`} style={{ "--reveal-delay": `${delay}ms` } as CSSProperties}>
+    <div ref={ref} className={`reveal ${visible ? "is-visible" : ""} ${className}`} style={{ "--reveal-delay": `${delay}ms`, ...style } as CSSProperties}>
       {children}
     </div>
   );
@@ -181,9 +181,18 @@ export default function Home() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeProduct, setActiveProduct] = useState(0);
   const [submitted, setSubmitted] = useState(false);
+  const processRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 36);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 36);
+      const process = processRef.current;
+      if (process) {
+        const rect = process.getBoundingClientRect();
+        const progress = Math.min(1, Math.max(0, (window.innerHeight * 0.78 - rect.top) / (rect.height * 0.78)));
+        process.style.setProperty("--process-progress", `${progress * 100}%`);
+      }
+    };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -318,23 +327,31 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="process section-dark" id="process">
+        <section ref={processRef} className="process section-dark" id="process">
           <div className="process__image" />
           <div className="process__overlay" />
           <div className="container process__inner">
             <Reveal className="process__heading">
-              <div className="section-kicker section-kicker--light">How we keep it honest</div>
-              <h2>Farm to flake —<br /><em>our process.</em></h2>
+              <div className="section-kicker section-kicker--light">Our 8-Step Process</div>
+              <h2><span className="process-title-mobile">Farm to Flake</span><span className="process-title-desktop">Farm to flake —<br /><em>our process.</em></span></h2>
               <p>Close attention at every stage. No shortcuts between the soil and your specification.</p>
               <a className="text-link text-link--cream" href="#contact">Talk to production <ArrowUpRight size={15} /></a>
             </Reveal>
-            <div className="process-timeline">
+            <div className="process-mobile-timeline">
+              <div className="process__spine" aria-hidden="true" />
               {processSteps.map(([number, name, description], index) => (
                 <Reveal key={number} delay={index * 65} className="process-step">
-                  <span className="process-step__number">{number}</span>
-                  <div className="process-step__line" />
-                  <h3>{name}</h3>
-                  <p>{description}</p>
+                  <span className="process-step__node">{number}</span>
+                  <div className="process-step__card"><span className="process-step__number">{number}</span><h3>{name}</h3><p>{description}</p></div>
+                </Reveal>
+              ))}
+            </div>
+            <div className="process-radial" aria-label="Our eight step process diagram">
+              <svg className="process-radial__lines" viewBox="0 0 640 640" aria-hidden="true"><circle className="process-radial__orbit" cx="320" cy="320" r="228" /><path className="process-radial__arc" d="M320 92 A228 228 0 1 1 158.8 158.8" /></svg>
+              <div className="process-radial__center"><span>Our</span><strong>Process</strong><i>08 steps</i></div>
+              {processSteps.map(([number, name, description], index) => (
+                <Reveal key={number} delay={index * 90} className="process-node-wrap" style={{ "--node-x": `${Math.sin(index * Math.PI / 4) * 228}px`, "--node-y": `${-Math.cos(index * Math.PI / 4) * 228}px` } as CSSProperties}>
+                  <div className="process-node"><span className="process-node__number">{number}</span><span className="process-node__name">{name}</span><span className="process-node__tooltip">{description}</span></div>
                 </Reveal>
               ))}
             </div>
@@ -363,7 +380,7 @@ export default function Home() {
         </section>
 
         <section className="retail-strip section-dark">
-          <div className="retail-strip__marquee" aria-hidden="true"><span>made for real kitchens</span><span>made for real kitchens</span><span>made for real kitchens</span></div>
+          <div className="retail-strip__marquee" aria-hidden="true">{Array.from({ length: 6 }, (_, index) => <span key={index}>made for real kitchens</span>)}</div>
           <div className="container retail-strip__inner">
             <div>
               <div className="section-kicker section-kicker--light">From our house to yours</div>
