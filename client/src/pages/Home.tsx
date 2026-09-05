@@ -369,7 +369,7 @@ export default function Home() {
               <div className="section-kicker section-kicker--light">From our house to yours</div>
               <h2>Good ingredients<br /><em>make good brands.</em></h2>
             </div>
-            <div className="retail-copy"><p>Our retail labels, Pinch Spices and Just Healthy, are already trusted by customers across Amazon and Flipkart.</p><div className="retail-badges"><span>PINCH<br /><small>SPICES</small></span><span>JUST<br /><small>HEALTHY</small></span><span className="market-badge">amazon</span><span className="market-badge market-badge--flip">Flipkart</span></div></div>
+            <div className="retail-copy"><p>Our retail labels, Pinch Spices and Just Healthy, are already trusted by customers across Amazon and Flipkart.</p><div className="retail-badges"><span>PINCH<br /><small>SPICES</small></span><span>JUST<br /><small>HEALTHY</small></span><span className="market-badge market-badge--amazon"><strong>amazon</strong><i /></span><span className="market-badge market-badge--flip"><b>F</b><strong>Flipkart</strong></span></div></div>
           </div>
         </section>
 
