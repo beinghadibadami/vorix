@@ -5,17 +5,24 @@ import {
   Check,
   ChevronDown,
   CircleDollarSign,
+  ClipboardCheck,
   Clock3,
+  Droplets,
   Leaf,
   Mail,
   MapPin,
   Menu,
   PackageCheck,
   Phone,
+  Scissors,
   Send,
   ShieldCheck,
   Sparkles,
+  Sprout,
+  Snowflake,
   Truck,
+  Wind,
+  ListChecks,
   X,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -100,7 +107,7 @@ const processSteps = [
   ["07", "Separation & Sorting", "Huller machine removes skins; defective pieces sorted out"],
   ["08", "Packaging & Storage", "Moisture-proof packing in temperature-controlled storage"],
 ];
-
+const processIcons: LucideIcon[] = [Sprout, ClipboardCheck, Droplets, Scissors, Wind, Snowflake, ListChecks, PackageCheck];
 const pillars: { icon: LucideIcon; title: string; copy: string }[] = [
   { icon: Leaf, title: "Premium raw material", copy: "We source close to the crop, selecting for aroma, maturity and dependable yield." },
   { icon: ShieldCheck, title: "Trusted quality", copy: "Internationally minded controls from first inspection through final packed lot." },
@@ -342,7 +349,7 @@ export default function Home() {
               {processSteps.map(([number, name, description], index) => (
                 <Reveal key={number} delay={index * 65} className="process-step">
                   <span className="process-step__node">{number}</span>
-                  <div className="process-step__card"><span className="process-step__number">{number}</span><h3>{name}</h3><p>{description}</p></div>
+                  <div className="process-step__card"><div className="process-step__icon-wrap"><span className="process-step__number">{number}</span>{(() => { const Icon = processIcons[index]; return <Icon size={22} strokeWidth={1.5} aria-hidden="true" />; })()}</div><div><h3>{name}</h3><p>{description}</p></div></div>
                 </Reveal>
               ))}
             </div>
@@ -351,7 +358,7 @@ export default function Home() {
               <div className="process-radial__center"><span>Our</span><strong>Process</strong><i>08 steps</i></div>
               {processSteps.map(([number, name, description], index) => (
                 <Reveal key={number} delay={index * 90} className="process-node-wrap" style={{ "--node-x": `${Math.sin(index * Math.PI / 4) * 228}px`, "--node-y": `${-Math.cos(index * Math.PI / 4) * 228}px` } as CSSProperties}>
-                  <div className="process-node"><span className="process-node__number">{number}</span><span className="process-node__name">{name}</span><span className="process-node__tooltip">{description}</span></div>
+                  <div className="process-node"><span className="process-node__number">{number}</span><span className="process-node__name">{(() => { const Icon = processIcons[index]; return <Icon size={16} strokeWidth={1.5} aria-hidden="true" />; })()}{name}</span><span className="process-node__tooltip">{description}</span></div>
                 </Reveal>
               ))}
             </div>
