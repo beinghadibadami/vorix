@@ -60,7 +60,7 @@ const categories = [
     short: "Deep colour. Full-bodied aroma.",
     variants: ["Flakes", "Chopped", "Minced", "Granules", "Powder"],
     tone: "wine",
-    visual: "rings",
+    visual: "red-rings",
   },
   {
     number: "04",
@@ -84,7 +84,7 @@ const categories = [
     short: "The finishing note that makes a dish yours.",
     variants: ["Blends", "Herbs", "Chilli", "Turmeric", "Custom Mixes"],
     tone: "sage",
-    visual: "swirl",
+    visual: "spices",
   },
 ];
 
@@ -171,14 +171,17 @@ function Mark({ compact = false }: { compact?: boolean }) {
 }
 
 function ProductVisual({ type }: { type: string }) {
+  const image = {
+    rings: `${storage}vorix-white-onion_6a8de652.jpg`,
+    "red-rings": `${storage}vorix-red-onion_80c59bd5.jpg`,
+    petals: `${storage}vorix-pink-onion_a14d9728.jpg`,
+    cloves: `${storage}vorix-garlic_c63aa7db.jpg`,
+    crunch: `${storage}vorix-fried-range_38269e55.jpg`,
+    spices: `${storage}vorix-spices-herbs_7ba78386.jpg`,
+  }[type] ?? `${storage}vorix-red-onion_80c59bd5.jpg`;
   return (
     <div className={`product-visual product-visual--${type}`} aria-hidden="true">
-      <span className="product-visual__orb" />
-      <span className="product-visual__orb product-visual__orb--two" />
-      <span className="product-visual__line" />
-      <span className="product-visual__grain product-visual__grain--one" />
-      <span className="product-visual__grain product-visual__grain--two" />
-      <span className="product-visual__grain product-visual__grain--three" />
+      <img src={image} alt="" loading="lazy" />
     </div>
   );
 }
@@ -213,10 +216,8 @@ export default function Home() {
         <div className="nav-inner">
           <Mark />
           <nav className={`nav-links ${mobileOpen ? "nav-links--open" : ""}`} aria-label="Primary navigation">
-            {navItems.map((item, index) => (
-              <a key={item.href} href={item.href} onClick={closeMobile}>
-                <span>0{index + 1}</span>{item.label}
-              </a>
+            {navItems.map((item) => (
+              <a key={item.href} href={item.href} onClick={closeMobile}>{item.label}</a>
             ))}
             <a className="nav-inquiry" href="#contact" onClick={closeMobile}>Start an inquiry <ArrowUpRight size={14} /></a>
           </nav>
