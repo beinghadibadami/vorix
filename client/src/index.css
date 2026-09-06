@@ -265,6 +265,11 @@ button { border: 0; }
 .product-depth__count { color: var(--wine); font-weight: 800; }
 .product-depth__count i { color: #998876; font-style: normal; font-weight: 500; }
 .depth-tabs { display: grid; grid-template-columns: repeat(6, 1fr); border-bottom: 1px solid var(--line); }
+.depth-tabs::-webkit-scrollbar { height: 6px; }
+.depth-tabs::-webkit-scrollbar-track { background: rgba(35,26,19,.08); border-radius: 999px; }
+.depth-tabs::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 999px; }
+.depth-tabs::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+.depth-tabs { scrollbar-color: var(--gold) rgba(35,26,19,.08); scrollbar-width: thin; }
 .depth-tabs button { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 4px; min-height: 46px; padding: 0 12px 13px 0; color: #8a7a6a; background: transparent; cursor: pointer; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-align: left; text-transform: uppercase; transition: color 180ms ease; }
 .depth-tabs button::after { content: ""; position: absolute; right: 12px; bottom: -1px; left: 0; height: 2px; background: var(--gold); opacity: 0; transform: scaleX(.4); transform-origin: left; transition: opacity 180ms ease, transform 220ms var(--ease-out); }
 .depth-tabs button:hover, .depth-tabs button.is-active { color: var(--wine); }
@@ -278,8 +283,8 @@ button { border: 0; }
 .pill-list svg { color: var(--gold); }
 
 /* Process — mobile-first spine, desktop radial diagram */
-.process { --process-progress: 0%; position: relative; overflow: hidden; padding: 92px 0 104px; background: #1c1208; }
-.process__image { position: absolute; inset: 0; background: url("/manus-storage/vorix-process-texture_8ea73b0a.jpg") center / cover; opacity: .18; mix-blend-mode: screen; }
+.process { --process-progress: 0%; position: relative; overflow: hidden; padding: 92px 0 104px; background: var(--earth); }
+.process__image { position: absolute; inset: 0; background: url("/manus-storage/vorix-process-texture-optimized_3abcadfc.webp") center / cover; opacity: .18; mix-blend-mode: screen; }
 .process__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(38,11,16,.97), rgba(38,11,16,.88) 56%, rgba(38,11,16,.98)); }
 .process__inner { position: relative; z-index: 2; }
 .process__heading { display: grid; grid-template-columns: 1fr; justify-items: center; gap: 18px; padding-bottom: 48px; text-align: center; }
@@ -470,7 +475,7 @@ button { border: 0; }
   .product-visual__orb { right: 22px; }
   .product-visual__orb--two { right: 126px; }
   .product-depth { margin-top: 75px; }
-  .depth-tabs { display: flex; overflow-x: auto; gap: 22px; }
+  .depth-tabs { display: flex; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; gap: 22px; padding-bottom: 7px; }
   .depth-tabs button { min-width: max-content; }
   .depth-panel { grid-template-columns: 1fr; padding-top: 35px; }
   .depth-panel h4 { font-size: 37px; }

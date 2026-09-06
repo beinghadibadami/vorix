@@ -172,13 +172,13 @@ function Mark({ compact = false }: { compact?: boolean }) {
 
 function ProductVisual({ type }: { type: string }) {
   const image = {
-    rings: `${storage}vorix-white-onion_6a8de652.jpg`,
-    "red-rings": `${storage}vorix-red-onion_80c59bd5.jpg`,
-    petals: `${storage}vorix-pink-onion_a14d9728.jpg`,
-    cloves: `${storage}vorix-garlic_c63aa7db.jpg`,
-    crunch: `${storage}vorix-fried-range_38269e55.jpg`,
-    spices: `${storage}vorix-spices-herbs_7ba78386.jpg`,
-  }[type] ?? `${storage}vorix-red-onion_80c59bd5.jpg`;
+    rings: `${storage}vorix-white-onion-optimized_25fc991d.webp`,
+    "red-rings": `${storage}vorix-red-onion-optimized_da315312.webp`,
+    petals: `${storage}vorix-pink-onion-optimized_012ed84b.webp`,
+    cloves: `${storage}vorix-garlic-optimized_71e1019f.webp`,
+    crunch: `${storage}vorix-fried-range-optimized_b8cb7cbe.webp`,
+    spices: `${storage}vorix-spices-herbs-optimized_e2b3e887.webp`,
+  }[type] ?? `${storage}vorix-red-onion-optimized_da315312.webp`;
   return (
     <div className={`product-visual product-visual--${type}`} aria-hidden="true">
       <img src={image} alt="" loading="lazy" />
@@ -257,7 +257,7 @@ export default function Home() {
               <div className="hero__visual-caption"><span>Ingredient studies</span><span>Vol. 01 — 2026</span></div>
               <div className="hero__image-wrap">
                 <div className="hero__image-aura" />
-                <img src={`${storage}vorix-hero-ingredients_c0a5928f.png`} alt="Whole onion, dehydrated garlic flakes, chilli and onion rings" />
+                <img src={`${storage}vorix-hero-ingredients-optimized_164e1f75.webp`} alt="Whole onion, dehydrated garlic flakes, chilli and onion rings" fetchPriority="high" />
               </div>
               <div className="hero__stamp"><span>Pure</span><b>+</b><span>Precise</span></div>
               <div className="hero__visual-index">01 / <em>03</em></div>
