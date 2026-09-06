@@ -257,7 +257,7 @@ export default function Home() {
               <div className="hero__visual-caption"><span>Ingredient studies</span><span>Vol. 01 — 2026</span></div>
               <div className="hero__image-wrap">
                 <div className="hero__image-aura" />
-                <img src={`${storage}vorix-hero-ingredients-optimized_164e1f75.webp`} alt="Whole onion, dehydrated garlic flakes, chilli and onion rings" fetchPriority="high" />
+                <img src={`${storage}vorix-hero-ingredients-hq_97cc58f7.webp`} alt="Whole onion, dehydrated garlic flakes, chilli and onion rings" fetchPriority="high" />
               </div>
               <div className="hero__stamp"><span>Pure</span><b>+</b><span>Precise</span></div>
               <div className="hero__visual-index">01 / <em>03</em></div>
