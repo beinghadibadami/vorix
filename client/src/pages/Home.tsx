@@ -181,8 +181,18 @@ function ProductVisual({ type }: { type: string }) {
   }[type] ?? `${storage}vorix-red-onion-optimized_da315312.webp`;
   return (
     <div className={`product-visual product-visual--${type}`} aria-hidden="true">
-      <img src={image} alt="" loading="lazy" />
+      <ImageWithLoader src={image} alt="" loading="lazy" />
     </div>
+  );
+}
+
+function ImageWithLoader({ src, alt, loading, fetchPriority, className = "" }: { src: string; alt: string; loading?: "lazy" | "eager"; fetchPriority?: "high" | "low" | "auto"; className?: string }) {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <span className={`image-loader ${loaded ? "image-loader--loaded" : ""} ${className}`}>
+      <span className="image-loader__shimmer" aria-hidden="true" />
+      <img src={src} alt={alt} loading={loading} fetchPriority={fetchPriority} onLoad={() => setLoaded(true)} />
+    </span>
   );
 }
 
@@ -257,7 +267,7 @@ export default function Home() {
               <div className="hero__visual-caption"><span>Ingredient studies</span><span>Vol. 01 — 2026</span></div>
               <div className="hero__image-wrap">
                 <div className="hero__image-aura" />
-                <img src={`${storage}vorix-hero-ingredients-hq_97cc58f7.webp`} alt="Whole onion, dehydrated garlic flakes, chilli and onion rings" fetchPriority="high" />
+                <ImageWithLoader src={`${storage}vorix-hero-ingredients-hq_97cc58f7.webp`} alt="Whole onion, dehydrated garlic flakes, chilli and onion rings" fetchPriority="high" className="image-loader--hero" />
               </div>
               <div className="hero__stamp"><span>Pure</span><b>+</b><span>Precise</span></div>
               <div className="hero__visual-index">01 / <em>03</em></div>
