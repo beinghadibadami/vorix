@@ -60,7 +60,7 @@ const categories = [
     short: "Deep colour. Full-bodied aroma.",
     variants: ["Flakes", "Chopped", "Minced", "Granules", "Powder"],
     tone: "wine",
-    visual: "rings",
+    visual: "red-rings",
   },
   {
     number: "04",
@@ -84,17 +84,17 @@ const categories = [
     short: "The finishing note that makes a dish yours.",
     variants: ["Blends", "Herbs", "Chilli", "Turmeric", "Custom Mixes"],
     tone: "sage",
-    visual: "swirl",
+    visual: "spices",
   },
 ];
 
 const productDepth = [
-  { name: "White Onion", detail: "Sweet, versatile and clean", items: ["White Onion Flakes", "White Onion Chopped", "White Onion Minced", "White Onion Granules", "White Onion Powder"] },
-  { name: "Pink Onion", detail: "Rosy, aromatic and nuanced", items: ["Pink Onion Flakes", "Pink Onion Chopped", "Pink Onion Minced", "Pink Onion Granules", "Pink Onion Powder"] },
-  { name: "Red Onion", detail: "Full colour, full flavour", items: ["Red Onion Flakes", "Red Onion Chopped", "Red Onion Minced", "Red Onion Granules", "Red Onion Powder"] },
-  { name: "Garlic", detail: "Pungent, warm and dependable", items: ["Garlic Flakes", "Garlic Chopped", "Garlic Minced", "Garlic Granules", "Garlic Powder"] },
-  { name: "Fried Range", detail: "Golden crunch, ready to finish", items: ["Fried Onion", "Fried Garlic", "Onion Crisps", "Garlic Crisps", "Ready-to-use Toppings"] },
-  { name: "Spices + Herbs", detail: "Blends made for your brief", items: ["Chilli Powder", "Turmeric", "Coriander", "Herb Blends", "Custom Seasonings"] },
+  { name: "White Onion", detail: "Sweet, versatile and clean", visual: "rings", items: ["White Onion Flakes", "White Onion Chopped", "White Onion Minced", "White Onion Granules", "White Onion Powder"] },
+  { name: "Pink Onion", detail: "Rosy, aromatic and nuanced", visual: "petals", items: ["Pink Onion Flakes", "Pink Onion Chopped", "Pink Onion Minced", "Pink Onion Granules", "Pink Onion Powder"] },
+  { name: "Red Onion", detail: "Full colour, full flavour", visual: "red-rings", items: ["Red Onion Flakes", "Red Onion Chopped", "Red Onion Minced", "Red Onion Granules", "Red Onion Powder"] },
+  { name: "Garlic", detail: "Pungent, warm and dependable", visual: "cloves", items: ["Garlic Flakes", "Garlic Chopped", "Garlic Minced", "Garlic Granules", "Garlic Powder"] },
+  { name: "Fried Range", detail: "Golden crunch, ready to finish", visual: "crunch", items: ["Fried Onion", "Fried Garlic", "Onion Crisps", "Garlic Crisps", "Ready-to-use Toppings"] },
+  { name: "Spices + Herbs", detail: "Blends made for your brief", visual: "spices", items: ["Chilli Powder", "Turmeric", "Coriander", "Herb Blends", "Custom Seasonings"] },
 ];
 
 const processSteps = [
@@ -171,15 +171,28 @@ function Mark({ compact = false }: { compact?: boolean }) {
 }
 
 function ProductVisual({ type }: { type: string }) {
+  const image = {
+    rings: `${storage}vorix-white-onion-optimized_25fc991d.webp`,
+    "red-rings": `${storage}vorix-red-onion-optimized_da315312.webp`,
+    petals: `${storage}vorix-pink-onion-optimized_012ed84b.webp`,
+    cloves: `${storage}vorix-garlic-optimized_71e1019f.webp`,
+    crunch: `${storage}vorix-fried-range-optimized_b8cb7cbe.webp`,
+    spices: `${storage}vorix-spices-herbs-optimized_e2b3e887.webp`,
+  }[type] ?? `${storage}vorix-red-onion-optimized_da315312.webp`;
   return (
     <div className={`product-visual product-visual--${type}`} aria-hidden="true">
-      <span className="product-visual__orb" />
-      <span className="product-visual__orb product-visual__orb--two" />
-      <span className="product-visual__line" />
-      <span className="product-visual__grain product-visual__grain--one" />
-      <span className="product-visual__grain product-visual__grain--two" />
-      <span className="product-visual__grain product-visual__grain--three" />
+      <ImageWithLoader src={image} alt="" loading="lazy" />
     </div>
+  );
+}
+
+function ImageWithLoader({ src, alt, loading, fetchPriority, className = "" }: { src: string; alt: string; loading?: "lazy" | "eager"; fetchPriority?: "high" | "low" | "auto"; className?: string }) {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <span className={`image-loader ${loaded ? "image-loader--loaded" : ""} ${className}`}>
+      <span className="image-loader__shimmer" aria-hidden="true" />
+      <img src={src} alt={alt} loading={loading} fetchPriority={fetchPriority} onLoad={() => setLoaded(true)} />
+    </span>
   );
 }
 
@@ -213,10 +226,8 @@ export default function Home() {
         <div className="nav-inner">
           <Mark />
           <nav className={`nav-links ${mobileOpen ? "nav-links--open" : ""}`} aria-label="Primary navigation">
-            {navItems.map((item, index) => (
-              <a key={item.href} href={item.href} onClick={closeMobile}>
-                <span>0{index + 1}</span>{item.label}
-              </a>
+            {navItems.map((item) => (
+              <a key={item.href} href={item.href} onClick={closeMobile}>{item.label}</a>
             ))}
             <a className="nav-inquiry" href="#contact" onClick={closeMobile}>Start an inquiry <ArrowUpRight size={14} /></a>
           </nav>
@@ -256,7 +267,7 @@ export default function Home() {
               <div className="hero__visual-caption"><span>Ingredient studies</span><span>Vol. 01 — 2026</span></div>
               <div className="hero__image-wrap">
                 <div className="hero__image-aura" />
-                <img src={`${storage}vorix-hero-ingredients_c0a5928f.png`} alt="Whole onion, dehydrated garlic flakes, chilli and onion rings" />
+                <ImageWithLoader src={`${storage}vorix-hero-ingredients-hq_97cc58f7.webp`} alt="Whole onion, dehydrated garlic flakes, chilli and onion rings" fetchPriority="high" className="image-loader--hero" />
               </div>
               <div className="hero__stamp"><span>Pure</span><b>+</b><span>Precise</span></div>
               <div className="hero__visual-index">01 / <em>03</em></div>
@@ -323,12 +334,26 @@ export default function Home() {
                   </button>
                 ))}
               </div>
-              <div className="depth-panel" role="tabpanel">
-                <div>
-                  <span className="depth-panel__eyebrow">{productDepth[activeProduct].detail}</span>
-                  <h4>{productDepth[activeProduct].name}<br /><em>in every cut.</em></h4>
+              <div className="depth-catalog" role="tabpanel">
+                <div className="depth-hero-card">
+                  <ProductVisual type={productDepth[activeProduct].visual} />
+                  <div className="depth-hero-card__shade" />
+                  <div className="depth-hero-card__copy">
+                    <span className="depth-panel__eyebrow">{productDepth[activeProduct].detail}</span>
+                    <h4>{productDepth[activeProduct].name}<br /><em>in every cut.</em></h4>
+                    <span className="depth-hero-card__note">Product range · specification-led</span>
+                  </div>
                 </div>
-                <div className="pill-list">{productDepth[activeProduct].items.map((item) => <span key={item}>{item} <Check size={13} /></span>)}</div>
+                <div className="format-grid">
+                  {productDepth[activeProduct].items.map((item, index) => (
+                    <div className="format-card" key={item}>
+                      <div className="format-card__placeholder"><span>{String(index + 1).padStart(2, "0")}</span><small>Image coming soon</small></div>
+                      <span className="format-card__eyebrow">{productDepth[activeProduct].name}</span>
+                      <h5>{item.replace(`${productDepth[activeProduct].name} `, "")}</h5>
+                      <p>Cut and packed to your production brief.</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </Reveal>
           </div>
