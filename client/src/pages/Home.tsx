@@ -30,11 +30,11 @@ import type { LucideIcon } from "lucide-react";
 const storage = "/manus-storage/";
 
 const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Products", href: "#products" },
-  { label: "Process", href: "#process" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Products", href: "/products" },
+  { label: "Process", href: "/process" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const categories = [
@@ -156,7 +156,7 @@ function Reveal({ children, className = "", delay = 0, style }: { children: Reac
 
 function Mark({ compact = false }: { compact?: boolean }) {
   return (
-    <a className={`brand-mark ${compact ? "brand-mark--compact" : ""}`} href="#home" aria-label="Vorix Food Ingredients home">
+    <a className={`brand-mark ${compact ? "brand-mark--compact" : ""}`} href="/" aria-label="Vorix Food Ingredients home">
       <span className="brand-mark__symbol" aria-hidden="true">
         <span />
         <span />
@@ -196,7 +196,12 @@ function ImageWithLoader({ src, alt, loading, fetchPriority, className = "" }: {
   );
 }
 
-export default function Home() {
+export default function Home({ page = "home" }: { page?: "home" | "about" | "products" | "process" | "contact" }) {
+  const isHome = page === "home";
+  const isAbout = page === "about";
+  const isProducts = page === "products";
+  const isProcess = page === "process";
+  const isContact = page === "contact";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeProduct, setActiveProduct] = useState(0);
@@ -229,7 +234,7 @@ export default function Home() {
             {navItems.map((item) => (
               <a key={item.href} href={item.href} onClick={closeMobile}>{item.label}</a>
             ))}
-            <a className="nav-inquiry" href="#contact" onClick={closeMobile}>Start an inquiry <ArrowUpRight size={14} /></a>
+            <a className="nav-inquiry" href="/contact" onClick={closeMobile}>Start an inquiry <ArrowUpRight size={14} /></a>
           </nav>
           <button className="menu-toggle" onClick={() => setMobileOpen((open) => !open)} aria-label={mobileOpen ? "Close menu" : "Open menu"} aria-expanded={mobileOpen}>
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -238,7 +243,7 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="hero" id="home">
+        {isHome && <section className="hero" id="home">
           <div className="hero__grain" />
           {particleDots.map((dot, index) => (
             <span key={index} className={`particle particle--${dot.color}`} style={{ left: dot.left, top: dot.top, width: dot.size, height: dot.size, animationDelay: `${index * 170}ms` }} />
@@ -255,8 +260,8 @@ export default function Home() {
               </h1>
               <p className="hero__lede">Premium dehydrated vegetables, spices and seasonings — made close to the crop, ready for the world.</p>
               <div className="hero__actions">
-                <a className="button button--gold" href="#products">Explore products <ArrowDownRight size={16} /></a>
-                <a className="text-link text-link--cream" href="#about">Why Vorix <ArrowUpRight size={15} /></a>
+                <a className="button button--gold" href="/products">Explore products <ArrowDownRight size={16} /></a>
+                <a className="text-link text-link--cream" href="/about">Why Vorix <ArrowUpRight size={15} /></a>
               </div>
               <div className="hero__meta">
                 <span><strong>01</strong> rooted in India</span>
@@ -274,9 +279,9 @@ export default function Home() {
             </div>
           </div>
           <div className="hero__scroll"><span>Scroll to explore</span><span className="hero__scroll-line" /></div>
-        </section>
+        </section>}
 
-        <section className="about-strip section-light" id="about">
+        {(isHome || isAbout) && <section className="about-strip section-light" id="about">
           <div className="container about-grid">
             <Reveal className="about-quote">
               <div className="section-kicker">A better way to preserve flavour</div>
@@ -290,13 +295,13 @@ export default function Home() {
                 <h2>Born where the onion<br /><em>knows its way around.</em></h2>
                 <p>Vorix Food Ingredients brings the aromatic richness of Saurashtra into a modern, dependable ingredient supply chain. We work with the character of each crop — then use precise dehydration, sorting and packing to make that character travel further.</p>
                 <p>From our home in Mahuva, we serve food makers who need consistency without compromise.</p>
-                <a className="text-link" href="#contact">Meet the team <ArrowUpRight size={15} /></a>
+                <a className="text-link" href="/contact">Meet the team <ArrowUpRight size={15} /></a>
               </div>
             </Reveal>
           </div>
-        </section>
+        </section>}
 
-        <section className="products section-light" id="products">
+        {(isHome || isProducts) && <section className="products section-light" id="products">
           <div className="container">
             <Reveal className="section-heading-row">
               <div>
@@ -357,9 +362,9 @@ export default function Home() {
               </div>
             </Reveal>
           </div>
-        </section>
+        </section>}
 
-        <section ref={processRef} className="process section-dark" id="process">
+        {(isHome || isProcess) && <section ref={processRef} className="process section-dark" id="process">
           <div className="process__image" />
           <div className="process__overlay" />
           <div className="container process__inner">
@@ -367,7 +372,7 @@ export default function Home() {
               <div className="section-kicker section-kicker--light">Our 8-Step Process</div>
               <h2><span className="process-title-mobile">Farm to Flake</span><span className="process-title-desktop">Farm to flake —<br /><em>our process.</em></span></h2>
               <p>Close attention at every stage. No shortcuts between the soil and your specification.</p>
-              <a className="text-link text-link--cream" href="#contact">Talk to production <ArrowUpRight size={15} /></a>
+              <a className="text-link text-link--cream" href="/contact">Talk to production <ArrowUpRight size={15} /></a>
             </Reveal>
             <div className="process-mobile-timeline">
               <div className="process__spine" aria-hidden="true" />
@@ -388,9 +393,9 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </section>}
 
-        <section className="why section-light">
+        {(isHome || isAbout) && <section className="why section-light">
           <div className="container why-grid">
             <Reveal className="why-intro">
               <div className="section-kicker">The Vorix advantage</div>
@@ -409,9 +414,9 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </section>}
 
-        <section className="retail-strip section-dark">
+        {isHome && <section className="retail-strip section-dark">
           <div className="retail-strip__marquee" aria-hidden="true">{Array.from({ length: 6 }, (_, index) => <span key={index}>made for real kitchens</span>)}</div>
           <div className="container retail-strip__inner">
             <div>
@@ -420,9 +425,9 @@ export default function Home() {
             </div>
             <div className="retail-copy"><p>Our retail labels, Pinch Spices and Just Healthy, are already trusted by customers across Amazon and Flipkart.</p><div className="retail-badges"><span>PINCH<br /><small>SPICES</small></span><span>JUST<br /><small>HEALTHY</small></span><span className="market-badge market-badge--amazon"><strong>amazon</strong><i /></span><span className="market-badge market-badge--flip"><b>F</b><strong>Flipkart</strong></span></div></div>
           </div>
-        </section>
+        </section>}
 
-        <section className="contact section-light" id="contact">
+        {isContact && <section className="contact section-light" id="contact">
           <div className="container contact-grid">
             <Reveal className="contact-intro">
               <div className="section-kicker">Let’s make something consistent</div>
@@ -451,7 +456,7 @@ export default function Home() {
               )}
             </Reveal>
           </div>
-        </section>
+        </section>}
       </main>
 
       <footer className="site-footer">
