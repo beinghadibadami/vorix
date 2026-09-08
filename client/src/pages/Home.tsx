@@ -89,12 +89,12 @@ const categories = [
 ];
 
 const productDepth = [
-  { name: "White Onion", detail: "Sweet, versatile and clean", items: ["White Onion Flakes", "White Onion Chopped", "White Onion Minced", "White Onion Granules", "White Onion Powder"] },
-  { name: "Pink Onion", detail: "Rosy, aromatic and nuanced", items: ["Pink Onion Flakes", "Pink Onion Chopped", "Pink Onion Minced", "Pink Onion Granules", "Pink Onion Powder"] },
-  { name: "Red Onion", detail: "Full colour, full flavour", items: ["Red Onion Flakes", "Red Onion Chopped", "Red Onion Minced", "Red Onion Granules", "Red Onion Powder"] },
-  { name: "Garlic", detail: "Pungent, warm and dependable", items: ["Garlic Flakes", "Garlic Chopped", "Garlic Minced", "Garlic Granules", "Garlic Powder"] },
-  { name: "Fried Range", detail: "Golden crunch, ready to finish", items: ["Fried Onion", "Fried Garlic", "Onion Crisps", "Garlic Crisps", "Ready-to-use Toppings"] },
-  { name: "Spices + Herbs", detail: "Blends made for your brief", items: ["Chilli Powder", "Turmeric", "Coriander", "Herb Blends", "Custom Seasonings"] },
+  { name: "White Onion", detail: "Sweet, versatile and clean", visual: "rings", items: ["White Onion Flakes", "White Onion Chopped", "White Onion Minced", "White Onion Granules", "White Onion Powder"] },
+  { name: "Pink Onion", detail: "Rosy, aromatic and nuanced", visual: "petals", items: ["Pink Onion Flakes", "Pink Onion Chopped", "Pink Onion Minced", "Pink Onion Granules", "Pink Onion Powder"] },
+  { name: "Red Onion", detail: "Full colour, full flavour", visual: "red-rings", items: ["Red Onion Flakes", "Red Onion Chopped", "Red Onion Minced", "Red Onion Granules", "Red Onion Powder"] },
+  { name: "Garlic", detail: "Pungent, warm and dependable", visual: "cloves", items: ["Garlic Flakes", "Garlic Chopped", "Garlic Minced", "Garlic Granules", "Garlic Powder"] },
+  { name: "Fried Range", detail: "Golden crunch, ready to finish", visual: "crunch", items: ["Fried Onion", "Fried Garlic", "Onion Crisps", "Garlic Crisps", "Ready-to-use Toppings"] },
+  { name: "Spices + Herbs", detail: "Blends made for your brief", visual: "spices", items: ["Chilli Powder", "Turmeric", "Coriander", "Herb Blends", "Custom Seasonings"] },
 ];
 
 const processSteps = [
@@ -334,12 +334,26 @@ export default function Home() {
                   </button>
                 ))}
               </div>
-              <div className="depth-panel" role="tabpanel">
-                <div>
-                  <span className="depth-panel__eyebrow">{productDepth[activeProduct].detail}</span>
-                  <h4>{productDepth[activeProduct].name}<br /><em>in every cut.</em></h4>
+              <div className="depth-catalog" role="tabpanel">
+                <div className="depth-hero-card">
+                  <ProductVisual type={productDepth[activeProduct].visual} />
+                  <div className="depth-hero-card__shade" />
+                  <div className="depth-hero-card__copy">
+                    <span className="depth-panel__eyebrow">{productDepth[activeProduct].detail}</span>
+                    <h4>{productDepth[activeProduct].name}<br /><em>in every cut.</em></h4>
+                    <span className="depth-hero-card__note">Product range · specification-led</span>
+                  </div>
                 </div>
-                <div className="pill-list">{productDepth[activeProduct].items.map((item) => <span key={item}>{item} <Check size={13} /></span>)}</div>
+                <div className="format-grid">
+                  {productDepth[activeProduct].items.map((item, index) => (
+                    <div className="format-card" key={item}>
+                      <div className="format-card__placeholder"><span>{String(index + 1).padStart(2, "0")}</span><small>Image coming soon</small></div>
+                      <span className="format-card__eyebrow">{productDepth[activeProduct].name}</span>
+                      <h5>{item.replace(`${productDepth[activeProduct].name} `, "")}</h5>
+                      <p>Cut and packed to your production brief.</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </Reveal>
           </div>
