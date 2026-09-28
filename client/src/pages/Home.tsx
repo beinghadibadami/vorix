@@ -29,6 +29,24 @@ import type { LucideIcon } from "lucide-react";
 
 const storage = "/manus-storage/";
 
+const categoryImages: Record<string, string> = {
+  rings: `${storage}vorix-category-white_21d0e092.webp`,
+  petals: `${storage}vorix-category-pink_99ffda13.webp`,
+  "red-rings": `${storage}vorix-category-red_b7723c85.webp`,
+  cloves: `${storage}vorix-category-garlic_31b124b3.webp`,
+  crunch: `${storage}vorix-category-fried_c1a1ffd1.webp`,
+  spices: `${storage}vorix-category-spices_9b1b9df6.webp`,
+};
+
+const formatImages: Record<string, string> = {
+  "White Onion Flakes": `${storage}vorix-format-white-flakes_6d3dddf6.webp`, "White Onion Chopped": `${storage}vorix-format-white-chopped_b7e86f5c.webp`, "White Onion Minced": `${storage}vorix-format-white-minced_66c1c15d.webp`, "White Onion Granules": `${storage}vorix-format-white-granules_2ba95767.webp`, "White Onion Powder": `${storage}vorix-format-white-powder_ec72f9f1.webp`,
+  "Pink Onion Flakes": `${storage}vorix-format-pink-flakes_18ec8a6b.webp`, "Pink Onion Chopped": `${storage}vorix-format-pink-chopped_fce3c439.webp`, "Pink Onion Minced": `${storage}vorix-format-pink-minced_ed57025e.webp`, "Pink Onion Granules": `${storage}vorix-format-pink-granules_10c98b98.webp`, "Pink Onion Powder": `${storage}vorix-format-pink-powder_b08e2a3b.webp`,
+  "Red Onion Flakes": `${storage}vorix-format-red-flakes_d8043945.webp`, "Red Onion Chopped": `${storage}vorix-format-red-chopped_b8e632cf.webp`, "Red Onion Minced": `${storage}vorix-format-red-minced_a466cf31.webp`, "Red Onion Granules": `${storage}vorix-format-red-granules_debab3e1.webp`, "Red Onion Powder": `${storage}vorix-format-red-powder_01d24d25.webp`,
+  "Garlic Flakes": `${storage}vorix-format-garlic-flakes_12fb4a11.webp`, "Garlic Chopped": `${storage}vorix-format-garlic-chopped_09dd27c2.webp`, "Garlic Minced": `${storage}vorix-format-garlic-minced_d14cd659.webp`, "Garlic Granules": `${storage}vorix-format-garlic-granules_fde65c4f.webp`, "Garlic Powder": `${storage}vorix-format-garlic-powder_cf03349c.webp`,
+  "Fried Onion": `${storage}vorix-format-fried-onion_54c4d791.webp`, "Fried Garlic": `${storage}vorix-format-fried-garlic_12b6996a.webp`, "Onion Crisps": `${storage}vorix-format-fried-crisps_839988be.webp`, "Garlic Crisps": `${storage}vorix-format-fried-crisps_839988be.webp`, "Ready-to-use Toppings": `${storage}vorix-format-fried-toppings_8c9cf176.webp`,
+  "Chilli Powder": `${storage}vorix-format-spices-chilli_0af562c4.webp`, Turmeric: `${storage}vorix-format-spices-turmeric_c504d1d4.webp`, Coriander: `${storage}vorix-format-spices-coriander_dcb8fe7a.webp`, "Herb Blends": `${storage}vorix-format-spices-herbs_d5150809.webp`, "Custom Seasonings": `${storage}vorix-format-spices-custom-seasonings_3f6147f7.webp`,
+};
+
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
@@ -169,19 +187,15 @@ function Mark({ compact = false }: { compact?: boolean }) {
 }
 
 function ProductVisual({ type }: { type: string }) {
-  const image = {
-    rings: `${storage}vorix-white-onion-optimized_25fc991d.webp`,
-    "red-rings": `${storage}vorix-red-onion-optimized_da315312.webp`,
-    petals: `${storage}vorix-pink-onion-optimized_012ed84b.webp`,
-    cloves: `${storage}vorix-garlic-optimized_71e1019f.webp`,
-    crunch: `${storage}vorix-fried-range-optimized_b8cb7cbe.webp`,
-    spices: `${storage}vorix-spices-herbs-optimized_e2b3e887.webp`,
-  }[type] ?? `${storage}vorix-red-onion-optimized_da315312.webp`;
+  const image = categoryImages[type] ?? categoryImages["red-rings"];
   return (
     <div className={`product-visual product-visual--${type}`} aria-hidden="true">
       <ImageWithLoader src={image} alt="" loading="lazy" />
     </div>
   );
+}
+function FormatVisual({ item }: { item: string }) {
+  return <div className="format-card__visual"><ImageWithLoader src={formatImages[item] ?? categoryImages.rings} alt={`${item} ingredient`} loading="lazy" /></div>;
 }
 
 function ImageWithLoader({ src, alt, loading, fetchPriority, className = "" }: { src: string; alt: string; loading?: "lazy" | "eager"; fetchPriority?: "high" | "low" | "auto"; className?: string }) {
@@ -365,9 +379,9 @@ export default function Home({ page = "home" }: { page?: "home" | "about" | "pro
                   </div>
                 </div>
                 <div className="format-grid">
-                  {productDepth[activeProduct].items.map((item, index) => (
+                  {productDepth[activeProduct].items.map((item) => (
                     <div className="format-card" key={item}>
-                      <div className="format-card__placeholder"><span>{String(index + 1).padStart(2, "0")}</span><small>Image coming soon</small></div>
+                      <FormatVisual item={item} />
                       <span className="format-card__eyebrow">{productDepth[activeProduct].name}</span>
                       <h5>{item.replace(`${productDepth[activeProduct].name} `, "")}</h5>
                       <p>Cut and packed to your production brief.</p>
