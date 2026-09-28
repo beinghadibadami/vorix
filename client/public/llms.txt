@@ -1,0 +1,27 @@
+# Vorix Food Ingredients
+
+> Premium dehydrated vegetables, spices and seasonings from Mahuva, Gujarat, India.
+
+## About
+Vorix Food Ingredients supplies dependable dehydrated ingredients for food makers, with sourcing close to the crop and controlled processing, sorting and packing.
+
+## Products
+- Dehydrated white onion: flakes, chopped, minced, granules and powder
+- Dehydrated pink onion: flakes, chopped, minced, granules and powder
+- Dehydrated red onion: flakes, chopped, minced, granules and powder
+- Dehydrated garlic
+- Fried onion and garlic
+- Spices, herbs and seasonings
+
+## Public pages
+- Home: /
+- Products: /products
+- About: /about
+- FAQs: /faq
+- Ingredient journal: /journal
+
+## Contact
+Domestic enquiries: hussain@nexusfoods.co.in
+Export enquiries: hasan@nexusfoods.co.in
+Phone: +91 94846 99990
+Location: Mahuva, Gujarat, India

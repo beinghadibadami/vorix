@@ -33,8 +33,6 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Products", href: "/products" },
-  { label: "Process", href: "/process" },
-  { label: "Contact", href: "/contact" },
 ];
 
 const categories = [
@@ -196,12 +194,12 @@ function ImageWithLoader({ src, alt, loading, fetchPriority, className = "" }: {
   );
 }
 
-export default function Home({ page = "home" }: { page?: "home" | "about" | "products" | "process" | "contact" }) {
+export default function Home({ page = "home" }: { page?: "home" | "about" | "products" | "faq" | "blog" }) {
   const isHome = page === "home";
   const isAbout = page === "about";
   const isProducts = page === "products";
-  const isProcess = page === "process";
-  const isContact = page === "contact";
+  const isFaq = page === "faq";
+  const isBlog = page === "blog";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeProduct, setActiveProduct] = useState(0);
@@ -223,18 +221,35 @@ export default function Home({ page = "home" }: { page?: "home" | "about" | "pro
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const metadata = page === "faq"
+      ? { title: "FAQs — Vorix Food Ingredients", description: "Answers about Vorix dehydrated onions, garlic, spices, formats, sourcing and export supply." }
+      : page === "blog"
+        ? { title: "Ingredient Journal — Vorix Food Ingredients", description: "Practical perspectives on dehydration, ingredient consistency and better food production from Vorix." }
+        : null;
+    if (!metadata) return;
+    document.title = metadata.title;
+    document.querySelector('meta[name="description"]')?.setAttribute("content", metadata.description);
+    const schema = document.createElement("script");
+    schema.type = "application/ld+json";
+    schema.text = page === "faq"
+      ? JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: ["What ingredients does Vorix supply?", "Where are Vorix ingredients sourced and made?", "Which formats are available?", "Can Vorix support export requirements?", "How do I request a sample or quotation?"].map((name, index) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text: ["We supply dehydrated white, pink and red onion, garlic, fried onion and garlic, and spices, herbs and seasonings.", "Our ingredients are sourced close to the crop and processed in Mahuva, Gujarat, with controlled dehydration, sorting and packing.", "Depending on the product, formats include flakes, chopped, minced, granules, powder, fried formats and custom blends.", "Yes. We work with food makers in India and international markets and can discuss specifications, documentation and production planning.", "Use the inquiry form on the homepage or email hussain@nexusfoods.co.in for domestic enquiries and hasan@nexusfoods.co.in for export enquiries."][index] } })) })
+      : JSON.stringify({ "@context": "https://schema.org", "@type": "Blog", name: "Vorix Ingredient Journal", url: "https://vorixfoodingredients.com/journal" });
+    document.head.appendChild(schema);
+    return () => schema.remove();
+  }, [page]);
   const closeMobile = () => setMobileOpen(false);
 
   return (
     <div className="site-shell">
-      <header className={`site-nav ${scrolled ? "site-nav--scrolled" : ""}`}>
+      <header className={`site-nav ${scrolled ? "site-nav--scrolled" : ""} ${!isHome ? "site-nav--light" : ""}`}>
         <div className="nav-inner">
           <Mark />
           <nav className={`nav-links ${mobileOpen ? "nav-links--open" : ""}`} aria-label="Primary navigation">
             {navItems.map((item) => (
               <a key={item.href} href={item.href} onClick={closeMobile}>{item.label}</a>
             ))}
-            <a className="nav-inquiry" href="/contact" onClick={closeMobile}>Start an inquiry <ArrowUpRight size={14} /></a>
+            <a className="nav-inquiry" href="/#contact" onClick={closeMobile}>Start an inquiry <ArrowUpRight size={14} /></a>
           </nav>
           <button className="menu-toggle" onClick={() => setMobileOpen((open) => !open)} aria-label={mobileOpen ? "Close menu" : "Open menu"} aria-expanded={mobileOpen}>
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -295,7 +310,7 @@ export default function Home({ page = "home" }: { page?: "home" | "about" | "pro
                 <h2>Born where the onion<br /><em>knows its way around.</em></h2>
                 <p>Vorix Food Ingredients brings the aromatic richness of Saurashtra into a modern, dependable ingredient supply chain. We work with the character of each crop — then use precise dehydration, sorting and packing to make that character travel further.</p>
                 <p>From our home in Mahuva, we serve food makers who need consistency without compromise.</p>
-                <a className="text-link" href="/contact">Meet the team <ArrowUpRight size={15} /></a>
+                <a className="text-link" href="/#contact">Meet the team <ArrowUpRight size={15} /></a>
               </div>
             </Reveal>
           </div>
@@ -364,7 +379,7 @@ export default function Home({ page = "home" }: { page?: "home" | "about" | "pro
           </div>
         </section>}
 
-        {(isHome || isProcess) && <section ref={processRef} className="process section-dark" id="process">
+        {isHome && <section ref={processRef} className="process section-dark" id="process">
           <div className="process__image" />
           <div className="process__overlay" />
           <div className="container process__inner">
@@ -372,7 +387,7 @@ export default function Home({ page = "home" }: { page?: "home" | "about" | "pro
               <div className="section-kicker section-kicker--light">Our 8-Step Process</div>
               <h2><span className="process-title-mobile">Farm to Flake</span><span className="process-title-desktop">Farm to flake —<br /><em>our process.</em></span></h2>
               <p>Close attention at every stage. No shortcuts between the soil and your specification.</p>
-              <a className="text-link text-link--cream" href="/contact">Talk to production <ArrowUpRight size={15} /></a>
+              <a className="text-link text-link--cream" href="/#contact">Talk to production <ArrowUpRight size={15} /></a>
             </Reveal>
             <div className="process-mobile-timeline">
               <div className="process__spine" aria-hidden="true" />
@@ -416,18 +431,7 @@ export default function Home({ page = "home" }: { page?: "home" | "about" | "pro
           </div>
         </section>}
 
-        {isHome && <section className="retail-strip section-dark">
-          <div className="retail-strip__marquee" aria-hidden="true">{Array.from({ length: 6 }, (_, index) => <span key={index}>made for real kitchens</span>)}</div>
-          <div className="container retail-strip__inner">
-            <div>
-              <div className="section-kicker section-kicker--light">From our house to yours</div>
-              <h2>Good ingredients<br /><em>make good brands.</em></h2>
-            </div>
-            <div className="retail-copy"><p>Our retail labels, Pinch Spices and Just Healthy, are already trusted by customers across Amazon and Flipkart.</p><div className="retail-badges"><span>PINCH<br /><small>SPICES</small></span><span>JUST<br /><small>HEALTHY</small></span><span className="market-badge market-badge--amazon"><strong>amazon</strong><i /></span><span className="market-badge market-badge--flip"><b>F</b><strong>Flipkart</strong></span></div></div>
-          </div>
-        </section>}
-
-        {isContact && <section className="contact section-light" id="contact">
+        {isHome && <section className="contact section-light" id="contact">
           <div className="container contact-grid">
             <Reveal className="contact-intro">
               <div className="section-kicker">Let’s make something consistent</div>
@@ -457,12 +461,31 @@ export default function Home({ page = "home" }: { page?: "home" | "about" | "pro
             </Reveal>
           </div>
         </section>}
+        {isFaq && <section className="content-page section-light">
+          <div className="container content-page__intro"><div className="section-kicker">Answers for food makers</div><h1>Frequently asked<br /><em>questions.</em></h1><p>Clear answers about Vorix ingredients, sourcing, formats, quality and delivery.</p></div>
+          <div className="container faq-list">
+            {[
+              ["What ingredients does Vorix supply?", "We supply dehydrated white, pink and red onion, garlic, fried onion and garlic, and spices, herbs and seasonings."],
+              ["Where are Vorix ingredients sourced and made?", "Our ingredients are sourced close to the crop and processed in Mahuva, Gujarat, with controlled dehydration, sorting and packing."],
+              ["Which formats are available?", "Depending on the product, formats include flakes, chopped, minced, granules, powder, fried formats and custom blends."],
+              ["Can Vorix support export requirements?", "Yes. We work with food makers in India and international markets and can discuss specifications, documentation and production planning."],
+              ["How do I request a sample or quotation?", "Use the inquiry form on the homepage or email hussain@nexusfoods.co.in for domestic enquiries and hasan@nexusfoods.co.in for export enquiries."],
+            ].map(([question, answer]) => <details key={question}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}
+          </div>
+        </section>}
+        {isBlog && <section className="content-page section-light">
+          <div className="container content-page__intro"><div className="section-kicker">The ingredient journal</div><h1>Notes from the<br /><em>source.</em></h1><p>Practical perspectives on dehydration, ingredient consistency and better food production.</p></div>
+          <div className="container journal-grid">
+            {[['Why dehydration protects more than shelf life', 'How thoughtful dehydration helps food makers preserve aroma, colour and production flexibility.'], ['From crop character to specification', 'A closer look at the controls that turn a regional crop into a dependable ingredient.'], ['Choosing the right onion format', 'Flakes, chopped, minced, granules or powder: a practical guide for product developers.']].map(([title, copy], index) => <article key={title}><span className="journal-index">0{index + 1} / JOURNAL</span><h2>{title}</h2><p>{copy}</p><a className="text-link" href="/#contact">Talk to our team <ArrowUpRight size={15} /></a></article>)}
+          </div>
+        </section>}
       </main>
 
       <footer className="site-footer">
         <div className="container footer-top">
-          <div><Mark /><p>Premium dehydrated ingredients<br />from the heart of Gujarat.</p></div>
-          <div className="footer-links"><span className="footer-label">Explore</span>{navItems.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}</div>
+          <div className="footer-brand"><Mark /><p>Premium dehydrated ingredients<br />from the heart of Gujarat.</p><a className="footer-email" href="mailto:hussain@nexusfoods.co.in">hussain@nexusfoods.co.in <ArrowUpRight size={14} /></a></div>
+          <div className="footer-links"><span className="footer-label">Explore</span>{navItems.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}<a href="/#contact">Start an inquiry</a></div>
+          <div className="footer-links"><span className="footer-label">Knowledge</span><a href="/faq">FAQs</a><a href="/journal">Ingredient journal</a><a href="/sitemap.xml">Sitemap</a></div>
           <div className="footer-social"><span className="footer-label">Follow the ingredient trail</span><a href="https://instagram.com/vorixfoodingredients" target="_blank" rel="noreferrer">@vorixfoodingredients <ArrowUpRight size={14} /></a></div>
         </div>
         <div className="container footer-bottom"><span>© 2026 Vorix Food Ingredients Pvt Ltd</span><span>Quality — the power on our side</span><span>Mahuva, Gujarat / India</span></div>
