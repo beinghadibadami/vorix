@@ -311,7 +311,7 @@ button { border: 0; }
 
 /* Process — mobile-first spine, desktop radial diagram */
 .process { --process-progress: 0%; position: relative; overflow: hidden; padding: 92px 0 104px; background: var(--earth); }
-.process__image { position: absolute; inset: 0; background: url("/manus-storage/vorix-process-texture-optimized_3abcadfc.webp") center / cover; opacity: .18; mix-blend-mode: screen; }
+.process__image { position: absolute; inset: 0; background: url("/assets/vorix-process-texture.webp") center / cover; opacity: .18; mix-blend-mode: screen; }
 .process__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(38,11,16,.97), rgba(38,11,16,.88) 56%, rgba(38,11,16,.98)); }
 .process__inner { position: relative; z-index: 2; }
 .process__heading { display: grid; grid-template-columns: 1fr; justify-items: center; gap: 18px; padding-bottom: 48px; text-align: center; }

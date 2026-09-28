@@ -27,7 +27,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
-const storage = "/manus-storage/";
+const storage = "/assets/";
 
 const categoryImages: Record<string, string> = {
   rings: `${storage}vorix-category-white_21d0e092.webp`,
@@ -301,7 +301,7 @@ export default function Home({ page = "home" }: { page?: "home" | "about" | "pro
               <div className="hero__visual-caption"><span>Ingredient studies</span><span>Vol. 01 — 2026</span></div>
               <div className="hero__image-wrap">
                 <div className="hero__image-aura" />
-                <ImageWithLoader src={`${storage}vorix-hero-ingredients-hq_97cc58f7.webp`} alt="Whole onion, dehydrated garlic flakes, chilli and onion rings" fetchPriority="high" className="image-loader--hero" />
+                <ImageWithLoader src={`${storage}vorix-hero-ingredients-hq.webp`} alt="Whole onion, dehydrated garlic flakes, chilli and onion rings" fetchPriority="high" className="image-loader--hero" />
               </div>
               <div className="hero__stamp"><span>Pure</span><b>+</b><span>Precise</span></div>
               <div className="hero__visual-index">01 / <em>03</em></div>
