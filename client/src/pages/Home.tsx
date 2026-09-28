@@ -38,12 +38,20 @@ const categoryImages: Record<string, string> = {
   spices: `${storage}vorix-category-spices.webp`,
 };
 
+// "What we make" cards only (the format section keeps categoryImages)
+const showcaseImages: Record<string, string> = {
+  rings: `${storage}vorix-showcase-white.webp`,
+  petals: `${storage}vorix-showcase-pink.webp`,
+  "red-rings": `${storage}vorix-showcase-red.webp`,
+  cloves: `${storage}vorix-showcase-garlic.webp`,
+  crunch: `${storage}vorix-showcase-fried.webp`,
+};
+
 const formatImages: Record<string, string> = {
   "White Onion Flakes": `${storage}vorix-format-white-flakes.webp`, "White Onion Chopped": `${storage}vorix-format-white-chopped.webp`, "White Onion Minced": `${storage}vorix-format-white-minced.webp`, "White Onion Granules": `${storage}vorix-format-white-granules.webp`, "White Onion Powder": `${storage}vorix-format-white-powder.webp`,
   "Pink Onion Flakes": `${storage}vorix-format-pink-flakes.webp`, "Pink Onion Chopped": `${storage}vorix-format-pink-chopped.webp`, "Pink Onion Minced": `${storage}vorix-format-pink-minced.webp`, "Pink Onion Granules": `${storage}vorix-format-pink-granules.webp`, "Pink Onion Powder": `${storage}vorix-format-pink-powder.webp`,
   "Red Onion Flakes": `${storage}vorix-format-red-flakes.webp`, "Red Onion Chopped": `${storage}vorix-format-red-chopped.webp`, "Red Onion Minced": `${storage}vorix-format-red-minced.webp`, "Red Onion Granules": `${storage}vorix-format-red-granules.webp`, "Red Onion Powder": `${storage}vorix-format-red-powder.webp`,
   "Garlic Flakes": `${storage}vorix-format-garlic-flakes.webp`, "Garlic Chopped": `${storage}vorix-format-garlic-chopped.webp`, "Garlic Minced": `${storage}vorix-format-garlic-minced.webp`, "Garlic Granules": `${storage}vorix-format-garlic-granules.webp`, "Garlic Powder": `${storage}vorix-format-garlic-powder.webp`,
-  "Fried Onion": `${storage}vorix-format-fried-onion.webp`, "Fried Garlic": `${storage}vorix-format-fried-garlic.webp`, "Onion Crisps": `${storage}vorix-format-fried-crisps.webp`, "Garlic Crisps": `${storage}vorix-format-fried-crisps.webp`, "Ready-to-use Toppings": `${storage}vorix-format-fried-toppings.webp`,
   "Chilli Powder": `${storage}vorix-format-spices-chilli.webp`, Turmeric: `${storage}vorix-format-spices-turmeric.webp`, Coriander: `${storage}vorix-format-spices-coriander.webp`, "Herb Blends": `${storage}vorix-format-spices-herbs.webp`, "Custom Seasonings": `${storage}vorix-format-spices-custom-seasonings.webp`,
 };
 
@@ -109,7 +117,6 @@ const productDepth = [
   { name: "Pink Onion", detail: "Rosy, aromatic and nuanced", visual: "petals", items: ["Pink Onion Flakes", "Pink Onion Chopped", "Pink Onion Minced", "Pink Onion Granules", "Pink Onion Powder"] },
   { name: "Red Onion", detail: "Full colour, full flavour", visual: "red-rings", items: ["Red Onion Flakes", "Red Onion Chopped", "Red Onion Minced", "Red Onion Granules", "Red Onion Powder"] },
   { name: "Garlic", detail: "Pungent, warm and dependable", visual: "cloves", items: ["Garlic Flakes", "Garlic Chopped", "Garlic Minced", "Garlic Granules", "Garlic Powder"] },
-  { name: "Fried Range", detail: "Golden crunch, ready to finish", visual: "crunch", items: ["Fried Onion", "Fried Garlic", "Onion Crisps", "Garlic Crisps", "Ready-to-use Toppings"] },
   { name: "Spices + Herbs", detail: "Blends made for your brief", visual: "spices", items: ["Chilli Powder", "Turmeric", "Coriander", "Herb Blends", "Custom Seasonings"] },
 ];
 
@@ -186,8 +193,8 @@ function Mark({ compact = false }: { compact?: boolean }) {
   );
 }
 
-function ProductVisual({ type }: { type: string }) {
-  const image = categoryImages[type] ?? categoryImages["red-rings"];
+function ProductVisual({ type, src }: { type: string; src?: string }) {
+  const image = src ?? categoryImages[type] ?? categoryImages["red-rings"];
   return (
     <div className={`product-visual product-visual--${type}`} aria-hidden="true">
       <ImageWithLoader src={image} alt="" loading="lazy" />
@@ -326,7 +333,7 @@ export default function Home({ page = "home" }: { page?: "home" | "about" | "pro
               {categories.map((category, index) => (
                 <Reveal key={category.name} delay={index * 55} className={`category-card category-card--${category.tone}`}>
                   <div className="category-card__top"><span>{category.number}</span><ArrowUpRight size={17} /></div>
-                  <ProductVisual type={category.visual} />
+                  <ProductVisual type={category.visual} src={showcaseImages[category.visual]} />
                   <div className="category-card__content">
                     <h3>{category.name}</h3>
                     <p>{category.short}</p>

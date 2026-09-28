@@ -608,9 +608,9 @@ button { border: 0; }
 }
 
 /* Real format imagery */
-.format-card__visual { position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: var(--earth); border: 1px solid rgba(121,32,42,.15); }
+.format-card__visual { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--earth); border: 1px solid rgba(121,32,42,.15); }
 .format-card__visual .image-loader { display: block; width: 100%; height: 100%; }
 .format-card__visual img { width: 100%; height: 100%; object-fit: cover; transition: transform 500ms var(--ease-out), filter 300ms ease; }
 .format-card:hover .format-card__visual img { transform: scale(1.045); }
 .format-card__visual::after { content: ""; position: absolute; inset: auto 0 0; height: 34%; pointer-events: none; background: linear-gradient(180deg, transparent, rgba(38,11,16,.24)); }
-@media (max-width: 700px) { .format-card__visual { aspect-ratio: 1 / .92; } }
+

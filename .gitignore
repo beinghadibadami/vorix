@@ -104,3 +104,6 @@ temp/
 *.db
 *.sqlite
 *.sqlite3
+
+# Source PNGs for product images (converted WebPs live in client/public/assets)
+/assets/
