@@ -30,21 +30,21 @@ import type { LucideIcon } from "lucide-react";
 const storage = "/assets/";
 
 const categoryImages: Record<string, string> = {
-  rings: `${storage}vorix-category-white_21d0e092.webp`,
-  petals: `${storage}vorix-category-pink_99ffda13.webp`,
-  "red-rings": `${storage}vorix-category-red_b7723c85.webp`,
-  cloves: `${storage}vorix-category-garlic_31b124b3.webp`,
-  crunch: `${storage}vorix-category-fried_c1a1ffd1.webp`,
-  spices: `${storage}vorix-category-spices_9b1b9df6.webp`,
+  rings: `${storage}vorix-category-white.webp`,
+  petals: `${storage}vorix-category-pink.webp`,
+  "red-rings": `${storage}vorix-category-red.webp`,
+  cloves: `${storage}vorix-category-garlic.webp`,
+  crunch: `${storage}vorix-category-fried.webp`,
+  spices: `${storage}vorix-category-spices.webp`,
 };
 
 const formatImages: Record<string, string> = {
-  "White Onion Flakes": `${storage}vorix-format-white-flakes_6d3dddf6.webp`, "White Onion Chopped": `${storage}vorix-format-white-chopped_b7e86f5c.webp`, "White Onion Minced": `${storage}vorix-format-white-minced_66c1c15d.webp`, "White Onion Granules": `${storage}vorix-format-white-granules_2ba95767.webp`, "White Onion Powder": `${storage}vorix-format-white-powder_ec72f9f1.webp`,
-  "Pink Onion Flakes": `${storage}vorix-format-pink-flakes_18ec8a6b.webp`, "Pink Onion Chopped": `${storage}vorix-format-pink-chopped_fce3c439.webp`, "Pink Onion Minced": `${storage}vorix-format-pink-minced_ed57025e.webp`, "Pink Onion Granules": `${storage}vorix-format-pink-granules_10c98b98.webp`, "Pink Onion Powder": `${storage}vorix-format-pink-powder_b08e2a3b.webp`,
-  "Red Onion Flakes": `${storage}vorix-format-red-flakes_d8043945.webp`, "Red Onion Chopped": `${storage}vorix-format-red-chopped_b8e632cf.webp`, "Red Onion Minced": `${storage}vorix-format-red-minced_a466cf31.webp`, "Red Onion Granules": `${storage}vorix-format-red-granules_debab3e1.webp`, "Red Onion Powder": `${storage}vorix-format-red-powder_01d24d25.webp`,
-  "Garlic Flakes": `${storage}vorix-format-garlic-flakes_12fb4a11.webp`, "Garlic Chopped": `${storage}vorix-format-garlic-chopped_09dd27c2.webp`, "Garlic Minced": `${storage}vorix-format-garlic-minced_d14cd659.webp`, "Garlic Granules": `${storage}vorix-format-garlic-granules_fde65c4f.webp`, "Garlic Powder": `${storage}vorix-format-garlic-powder_cf03349c.webp`,
-  "Fried Onion": `${storage}vorix-format-fried-onion_54c4d791.webp`, "Fried Garlic": `${storage}vorix-format-fried-garlic_12b6996a.webp`, "Onion Crisps": `${storage}vorix-format-fried-crisps_839988be.webp`, "Garlic Crisps": `${storage}vorix-format-fried-crisps_839988be.webp`, "Ready-to-use Toppings": `${storage}vorix-format-fried-toppings_8c9cf176.webp`,
-  "Chilli Powder": `${storage}vorix-format-spices-chilli_0af562c4.webp`, Turmeric: `${storage}vorix-format-spices-turmeric_c504d1d4.webp`, Coriander: `${storage}vorix-format-spices-coriander_dcb8fe7a.webp`, "Herb Blends": `${storage}vorix-format-spices-herbs_d5150809.webp`, "Custom Seasonings": `${storage}vorix-format-spices-custom-seasonings_3f6147f7.webp`,
+  "White Onion Flakes": `${storage}vorix-format-white-flakes.webp`, "White Onion Chopped": `${storage}vorix-format-white-chopped.webp`, "White Onion Minced": `${storage}vorix-format-white-minced.webp`, "White Onion Granules": `${storage}vorix-format-white-granules.webp`, "White Onion Powder": `${storage}vorix-format-white-powder.webp`,
+  "Pink Onion Flakes": `${storage}vorix-format-pink-flakes.webp`, "Pink Onion Chopped": `${storage}vorix-format-pink-chopped.webp`, "Pink Onion Minced": `${storage}vorix-format-pink-minced.webp`, "Pink Onion Granules": `${storage}vorix-format-pink-granules.webp`, "Pink Onion Powder": `${storage}vorix-format-pink-powder.webp`,
+  "Red Onion Flakes": `${storage}vorix-format-red-flakes.webp`, "Red Onion Chopped": `${storage}vorix-format-red-chopped.webp`, "Red Onion Minced": `${storage}vorix-format-red-minced.webp`, "Red Onion Granules": `${storage}vorix-format-red-granules.webp`, "Red Onion Powder": `${storage}vorix-format-red-powder.webp`,
+  "Garlic Flakes": `${storage}vorix-format-garlic-flakes.webp`, "Garlic Chopped": `${storage}vorix-format-garlic-chopped.webp`, "Garlic Minced": `${storage}vorix-format-garlic-minced.webp`, "Garlic Granules": `${storage}vorix-format-garlic-granules.webp`, "Garlic Powder": `${storage}vorix-format-garlic-powder.webp`,
+  "Fried Onion": `${storage}vorix-format-fried-onion.webp`, "Fried Garlic": `${storage}vorix-format-fried-garlic.webp`, "Onion Crisps": `${storage}vorix-format-fried-crisps.webp`, "Garlic Crisps": `${storage}vorix-format-fried-crisps.webp`, "Ready-to-use Toppings": `${storage}vorix-format-fried-toppings.webp`,
+  "Chilli Powder": `${storage}vorix-format-spices-chilli.webp`, Turmeric: `${storage}vorix-format-spices-turmeric.webp`, Coriander: `${storage}vorix-format-spices-coriander.webp`, "Herb Blends": `${storage}vorix-format-spices-herbs.webp`, "Custom Seasonings": `${storage}vorix-format-spices-custom-seasonings.webp`,
 };
 
 const navItems = [
@@ -235,23 +235,6 @@ export default function Home({ page = "home" }: { page?: "home" | "about" | "pro
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const metadata = page === "faq"
-      ? { title: "FAQs — Vorix Food Ingredients", description: "Answers about Vorix dehydrated onions, garlic, spices, formats, sourcing and export supply." }
-      : page === "blog"
-        ? { title: "Ingredient Journal — Vorix Food Ingredients", description: "Practical perspectives on dehydration, ingredient consistency and better food production from Vorix." }
-        : null;
-    if (!metadata) return;
-    document.title = metadata.title;
-    document.querySelector('meta[name="description"]')?.setAttribute("content", metadata.description);
-    const schema = document.createElement("script");
-    schema.type = "application/ld+json";
-    schema.text = page === "faq"
-      ? JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: ["What ingredients does Vorix supply?", "Where are Vorix ingredients sourced and made?", "Which formats are available?", "Can Vorix support export requirements?", "How do I request a sample or quotation?"].map((name, index) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text: ["We supply dehydrated white, pink and red onion, garlic, fried onion and garlic, and spices, herbs and seasonings.", "Our ingredients are sourced close to the crop and processed in Mahuva, Gujarat, with controlled dehydration, sorting and packing.", "Depending on the product, formats include flakes, chopped, minced, granules, powder, fried formats and custom blends.", "Yes. We work with food makers in India and international markets and can discuss specifications, documentation and production planning.", "Use the inquiry form on the homepage or email hussain@nexusfoods.co.in for domestic enquiries and hasan@nexusfoods.co.in for export enquiries."][index] } })) })
-      : JSON.stringify({ "@context": "https://schema.org", "@type": "Blog", name: "Vorix Ingredient Journal", url: "https://vorixfoodingredients.com/journal" });
-    document.head.appendChild(schema);
-    return () => schema.remove();
-  }, [page]);
   const closeMobile = () => setMobileOpen(false);
 
   return (
