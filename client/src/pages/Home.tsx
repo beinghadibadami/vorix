@@ -195,9 +195,12 @@ function Mark({ compact = false }: { compact?: boolean }) {
 
 function ProductVisual({ type, src }: { type: string; src?: string }) {
   const image = src ?? categoryImages[type] ?? categoryImages["red-rings"];
+  // Showcase images ship in 640/960/1448 widths so the browser never has to
+  // downscale a large image heavily (which makes fine detail look crunchy).
+  const srcSet = src ? `${src.replace(".webp", "-640.webp")} 640w, ${src.replace(".webp", "-960.webp")} 960w, ${src} 1448w` : undefined;
   return (
     <div className={`product-visual product-visual--${type}`} aria-hidden="true">
-      <ImageWithLoader src={image} alt="" loading="lazy" />
+      <ImageWithLoader src={image} srcSet={srcSet} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" alt="" loading="lazy" />
     </div>
   );
 }
@@ -205,12 +208,17 @@ function FormatVisual({ item }: { item: string }) {
   return <div className="format-card__visual"><ImageWithLoader src={formatImages[item] ?? categoryImages.rings} alt={`${item} ingredient`} loading="lazy" /></div>;
 }
 
-function ImageWithLoader({ src, alt, loading, fetchPriority, className = "" }: { src: string; alt: string; loading?: "lazy" | "eager"; fetchPriority?: "high" | "low" | "auto"; className?: string }) {
+function ImageWithLoader({ src, srcSet, sizes, alt, loading, fetchPriority, className = "" }: { src: string; srcSet?: string; sizes?: string; alt: string; loading?: "lazy" | "eager"; fetchPriority?: "high" | "low" | "auto"; className?: string }) {
   const [loaded, setLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+  // Prerendered images may finish loading before hydration, so onLoad never fires.
+  useEffect(() => {
+    if (imgRef.current?.complete) setLoaded(true);
+  }, []);
   return (
     <span className={`image-loader ${loaded ? "image-loader--loaded" : ""} ${className}`}>
       <span className="image-loader__shimmer" aria-hidden="true" />
-      <img src={src} alt={alt} loading={loading} fetchPriority={fetchPriority} onLoad={() => setLoaded(true)} />
+      <img ref={imgRef} src={src} srcSet={srcSet} sizes={sizes} alt={alt} loading={loading} fetchPriority={fetchPriority} decoding="async" onLoad={() => setLoaded(true)} />
     </span>
   );
 }
