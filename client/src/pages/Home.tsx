@@ -358,7 +358,9 @@ export default function Home({ page = "home" }: { page?: "home" | "about" | "pro
                   <div className="section-kicker">Go deeper</div>
                   <h3>Specify your <em>format.</em></h3>
                 </div>
-                <span className="product-depth__count">0{activeProduct + 1} <i>/ 06</i></span>
+                <span className="product-depth__count">
+                  {String(activeProduct + 1).padStart(2, "0")} <i>/ {String(productDepth.length).padStart(2, "0")}</i>
+                </span>
               </div>
               <div className="depth-tabs" role="tablist" aria-label="Product categories">
                 {productDepth.map((product, index) => (
