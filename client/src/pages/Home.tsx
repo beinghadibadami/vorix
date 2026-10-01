@@ -28,6 +28,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 
 const storage = "/assets/";
+const productImages = "/prod images/";
 
 const categoryImages: Record<string, string> = {
   rings: `${storage}vorix-category-white.webp`,
@@ -48,10 +49,10 @@ const showcaseImages: Record<string, string> = {
 };
 
 const formatImages: Record<string, string> = {
-  "White Onion Flakes": `${storage}vorix-format-white-flakes.webp`, "White Onion Chopped": `${storage}vorix-format-white-chopped.webp`, "White Onion Minced": `${storage}vorix-format-white-minced.webp`, "White Onion Granules": `${storage}vorix-format-white-granules.webp`, "White Onion Powder": `${storage}vorix-format-white-powder.webp`,
-  "Pink Onion Flakes": `${storage}vorix-format-pink-flakes.webp`, "Pink Onion Chopped": `${storage}vorix-format-pink-chopped.webp`, "Pink Onion Minced": `${storage}vorix-format-pink-minced.webp`, "Pink Onion Granules": `${storage}vorix-format-pink-granules.webp`, "Pink Onion Powder": `${storage}vorix-format-pink-powder.webp`,
-  "Red Onion Flakes": `${storage}vorix-format-red-flakes.webp`, "Red Onion Chopped": `${storage}vorix-format-red-chopped.webp`, "Red Onion Minced": `${storage}vorix-format-red-minced.webp`, "Red Onion Granules": `${storage}vorix-format-red-granules.webp`, "Red Onion Powder": `${storage}vorix-format-red-powder.webp`,
-  "Garlic Flakes": `${storage}vorix-format-garlic-flakes.webp`, "Garlic Chopped": `${storage}vorix-format-garlic-chopped.webp`, "Garlic Minced": `${storage}vorix-format-garlic-minced.webp`, "Garlic Granules": `${storage}vorix-format-garlic-granules.webp`, "Garlic Powder": `${storage}vorix-format-garlic-powder.webp`,
+  "White Onion Flakes": `${productImages}White flakes.png`, "White Onion Chopped": `${productImages}White chopped.png`, "White Onion Minced": `${productImages}White minced.png`, "White Onion Granules": `${productImages}White Granules.png`, "White Onion Powder": `${productImages}White powder.png`,
+  "Pink Onion Flakes": `${productImages}Flakes.png`, "Pink Onion Chopped": `${productImages}Chopped.png`, "Pink Onion Minced": `${productImages}Minced.png`, "Pink Onion Granules": `${productImages}Granules.png`, "Pink Onion Powder": `${productImages}Powder.png`,
+  "Red Onion Flakes": `${productImages}Red Flakes.png`, "Red Onion Chopped": `${productImages}Red chopped.png`, "Red Onion Minced": `${productImages}Red minced.png`, "Red Onion Granules": `${productImages}Red Granules.png`, "Red Onion Powder": `${productImages}Red powder.png`,
+  "Garlic Flakes": `${productImages}Garlic flakes.png`, "Garlic Chopped": `${productImages}Garlic chopped.png`, "Garlic Minced": `${productImages}Garlic minced.png`, "Garlic Granules": `${productImages}Garlic Granules.png`, "Garlic Powder": `${productImages}Garlic powder.png`,
   "Chilli Powder": `${storage}vorix-format-spices-chilli.webp`, Turmeric: `${storage}vorix-format-spices-turmeric.webp`, Coriander: `${storage}vorix-format-spices-coriander.webp`, "Herb Blends": `${storage}vorix-format-spices-herbs.webp`, "Custom Seasonings": `${storage}vorix-format-spices-custom-seasonings.webp`,
 };
 
