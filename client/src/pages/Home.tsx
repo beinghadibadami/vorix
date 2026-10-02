@@ -284,7 +284,7 @@ export default function Home({ page = "home" }: { page?: "home" | "about" | "pro
             <div className="hero__copy">
               <div className="eyebrow hero-eyebrow"><span className="eyebrow-line" /> Mahuva, Gujarat · Est. 2020</div>
               <h1>
-                {"The quality like never before".split(" ").map((word, index) => (
+                {"Quality like never before.".split(" ").map((word, index) => (
                   <span className="hero-word" key={`${word}-${index}`} style={{ animationDelay: `${index * 70 + 110}ms` }}>{word}</span>
                 ))}
               </h1>
@@ -299,13 +299,11 @@ export default function Home({ page = "home" }: { page?: "home" | "about" | "pro
               </div>
             </div>
             <div className="hero__visual" aria-label="Onion, dehydrated garlic and spice ingredients">
-              <div className="hero__visual-caption"><span>Ingredient studies</span><span>Vol. 01 — 2026</span></div>
               <div className="hero__image-wrap">
                 <div className="hero__image-aura" />
                 <ImageWithLoader src={`${productImages}hero.webp`} alt="Dehydrated onion, garlic, chilli and spice ingredients" fetchPriority="high" className="image-loader--hero" />
               </div>
               <div className="hero__stamp"><span>Pure</span><b>+</b><span>Precise</span></div>
-              <div className="hero__visual-index">01 / <em>03</em></div>
             </div>
           </div>
           <div className="hero__scroll"><span>Scroll to explore</span><span className="hero__scroll-line" /></div>
