@@ -41,10 +41,10 @@ const categoryImages: Record<string, string> = {
 
 // "What we make" cards only (the format section keeps categoryImages)
 const showcaseImages: Record<string, string> = {
-  rings: `${storage}vorix-showcase-white.webp`,
-  petals: `${storage}vorix-showcase-pink.webp`,
-  "red-rings": `${storage}vorix-showcase-red.webp`,
-  cloves: `${storage}vorix-showcase-garlic.webp`,
+  rings: `${productImages}white onion main.webp`,
+  petals: `${productImages}pink onion main.webp`,
+  "red-rings": `${productImages}red onion main.webp`,
+  cloves: `${productImages}garlic main.webp`,
   crunch: `${storage}vorix-showcase-fried.webp`,
 };
 
@@ -198,7 +198,9 @@ function ProductVisual({ type, src }: { type: string; src?: string }) {
   const image = src ?? categoryImages[type] ?? categoryImages["red-rings"];
   // Showcase images ship in 640/960/1448 widths so the browser never has to
   // downscale a large image heavily (which makes fine detail look crunchy).
-  const srcSet = src ? `${src.replace(".webp", "-640.webp")} 640w, ${src.replace(".webp", "-960.webp")} 960w, ${src} 1448w` : undefined;
+  const srcSet = src?.startsWith(`${storage}vorix-showcase-`)
+    ? `${src.replace(".webp", "-640.webp")} 640w, ${src.replace(".webp", "-960.webp")} 960w, ${src} 1448w`
+    : undefined;
   return (
     <div className={`product-visual product-visual--${type}`} aria-hidden="true">
       <ImageWithLoader src={image} srcSet={srcSet} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" alt="" loading="lazy" />
@@ -300,7 +302,7 @@ export default function Home({ page = "home" }: { page?: "home" | "about" | "pro
               <div className="hero__visual-caption"><span>Ingredient studies</span><span>Vol. 01 — 2026</span></div>
               <div className="hero__image-wrap">
                 <div className="hero__image-aura" />
-                <ImageWithLoader src={`${storage}vorix-hero-ingredients-hq.webp`} alt="Whole onion, dehydrated garlic flakes, chilli and onion rings" fetchPriority="high" className="image-loader--hero" />
+                <ImageWithLoader src={`${productImages}hero.webp`} alt="Dehydrated onion, garlic, chilli and spice ingredients" fetchPriority="high" className="image-loader--hero" />
               </div>
               <div className="hero__stamp"><span>Pure</span><b>+</b><span>Precise</span></div>
               <div className="hero__visual-index">01 / <em>03</em></div>
