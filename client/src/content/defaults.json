@@ -1,0 +1,677 @@
+{
+  "copy": {
+    "brand": {
+      "textVORIX": "VORIX",
+      "textFoodIngredients": "Food Ingredients"
+    },
+    "navigation": {
+      "textStartAnInquiry": "Start an inquiry "
+    },
+    "hero": {
+      "textMahuvaGujaratEst2020": " Mahuva, Gujarat · Est. 2020",
+      "textPremiumDehydratedVegetablesSpicesAndSeasonings": "Premium dehydrated vegetables, spices and seasonings — made close to the crop, ready for the world.",
+      "textExploreProducts": "Explore products ",
+      "textWhyVorix": "Why Vorix ",
+      "text01": "01",
+      "textRootedInIndia": " rooted in India",
+      "text02": "02",
+      "textBuiltForExport": " built for export",
+      "textPure": "Pure",
+      "textText": "+",
+      "textPrecise": "Precise",
+      "textScrollToExplore": "Scroll to explore",
+      "headingQualityLikeNeverBefore": "Quality like never before."
+    },
+    "about": {
+      "textABetterWayToPreserveFlavour": "A better way to preserve flavour",
+      "textQualityIsNotADepartment": "“Quality is not a department.",
+      "textItIsThePowerOnOur": "It is the power on our side.",
+      "textText": "”",
+      "textVorixFoodIngredients": "— Vorix Food Ingredients",
+      "text2020": "2020",
+      "textFoundedInMahuvaGujarat": "Founded in Mahuva, Gujarat",
+      "textBornWhereTheOnion": "Born where the onion",
+      "textKnowsItsWayAround": "knows its way around.",
+      "textVorixFoodIngredientsBringsTheAromatic": "Vorix Food Ingredients brings the aromatic richness of Saurashtra into a modern, dependable ingredient supply chain. We work with the character of each crop — then use precise dehydration, sorting and packing to make that character travel further.",
+      "textFromOurHomeInMahuvaWe": "From our home in Mahuva, we serve food makers who need consistency without compromise.",
+      "textMeetTheTeam": "Meet the team "
+    },
+    "products": {
+      "textTheIngredientLibrary": "The ingredient library",
+      "textWhatWe": "What we ",
+      "textMake": "make.",
+      "textSixFamiliesOfFlavourForwardIngredients": "Six families of flavour-forward ingredients, designed for the way modern kitchens actually work.",
+      "textGoDeeper": "Go deeper",
+      "textSpecifyYour": "Specify your ",
+      "textFormat": "format.",
+      "textText": "/ ",
+      "textInEveryCut": "in every cut.",
+      "textProductRangeSpecificationLed": "Product range · specification-led",
+      "textCutAndPackedToYourProduction": "Cut and packed to your production brief."
+    },
+    "process": {
+      "textOur8StepProcess": "Our 8-Step Process",
+      "textFarmToFlake": "Farm to Flake",
+      "textFarmToFlakeMore": "Farm to flake —",
+      "textOurProcess": "our process.",
+      "textCloseAttentionAtEveryStageNo": "Close attention at every stage. No shortcuts between the soil and your specification.",
+      "textTalkToProduction": "Talk to production ",
+      "textOur": "Our",
+      "textProcess": "Process",
+      "text08Steps": "08 steps"
+    },
+    "why": {
+      "textTheVorixAdvantage": "The Vorix advantage",
+      "textASmallDistance": "A small distance",
+      "textFromThe": "from the ",
+      "textSource": "source.",
+      "textAndAVeryClearLineBetween": "And a very clear line between what you ask for and what you receive.",
+      "textQualityThePowerOnOurSide": "Quality — the power on our side",
+      "text0": "0"
+    },
+    "contact": {
+      "textLetSMakeSomethingConsistent": "Let’s make something consistent",
+      "textBringUs": "Bring us",
+      "textYourBrief": "your brief.",
+      "textTellUsWhatYouReMaking": "Tell us what you’re making, where you’re going and what the ingredient needs to do. We’ll take it from there.",
+      "textDomesticEnquiries": "Domestic enquiries",
+      "textExportEnquiries": "Export enquiries",
+      "textCallUs": "Call us",
+      "textFindUs": "Find us",
+      "text378379RamkrupaIndustrialPark": "378–379, Ramkrupa Industrial Park",
+      "textMahuva364290Gujarat": "Mahuva – 364290, Gujarat",
+      "textINQUIRY01": "INQUIRY / 01",
+      "textBriefReceived": "Brief received.",
+      "textThankYouForReachingOutOur": "Thank you for reaching out. Our team will get back to you shortly.",
+      "textSendAnotherInquiry": "Send another inquiry ",
+      "textName": "Name",
+      "textCompany": "Company",
+      "textEmail": "Email",
+      "textPhone": "Phone",
+      "textInquiryType": "Inquiry type",
+      "textDomestic": "Domestic",
+      "textExport": "Export",
+      "textMessage": "Message",
+      "textSendInquiry": "Send inquiry ",
+      "textWeUsuallyReplyWithinOneWorking": "We usually reply within one working day."
+    },
+    "faq": {
+      "textAnswersForFoodMakers": "Answers for food makers",
+      "textFrequentlyAsked": "Frequently asked",
+      "textQuestions": "questions.",
+      "textClearAnswersAboutVorixIngredientsSourcing": "Clear answers about Vorix ingredients, sourcing, formats, quality and delivery.",
+      "textText": "+"
+    },
+    "journal": {
+      "textTheIngredientJournal": "The ingredient journal",
+      "textNotesFromThe": "Notes from the",
+      "textSource": "source.",
+      "textPracticalPerspectivesOnDehydrationIngredientConsistency": "Practical perspectives on dehydration, ingredient consistency and better food production.",
+      "text0": "0",
+      "textJOURNAL": " / JOURNAL",
+      "textTalkToOurTeam": "Talk to our team "
+    },
+    "footer": {
+      "textPremiumDehydratedIngredients": "Premium dehydrated ingredients",
+      "textFromTheHeartOfGujarat": "from the heart of Gujarat.",
+      "textExplore": "Explore",
+      "textStartAnInquiry": "Start an inquiry",
+      "textKnowledge": "Knowledge",
+      "textFAQs": "FAQs",
+      "textIngredientJournal": "Ingredient journal",
+      "textSitemap": "Sitemap",
+      "textFollowTheIngredientTrail": "Follow the ingredient trail",
+      "text2026VorixFoodIngredientsPvtLtd": "© 2026 Vorix Food Ingredients Pvt Ltd",
+      "textQualityThePowerOnOurSide": "Quality — the power on our side",
+      "textMahuvaGujaratIndia": "Mahuva, Gujarat / India"
+    }
+  },
+  "heroImage": {
+    "path": "/prod images/hero.webp",
+    "alt": "Dehydrated onion, garlic, chilli and spice ingredients"
+  },
+  "processImage": {
+    "path": "/assets/vorix-process-texture.webp",
+    "alt": ""
+  },
+  "navigation": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "About",
+      "href": "/about"
+    },
+    {
+      "label": "Products",
+      "href": "/products"
+    }
+  ],
+  "contact": {
+    "domesticEmail": "hussain@nexusfoods.co.in",
+    "exportEmail": "hasan@nexusfoods.co.in",
+    "phone": "+91 94846 99990",
+    "instagramUrl": "https://instagram.com/vorixfoodingredients",
+    "instagramLabel": "@vorixfoodingredients"
+  },
+  "categories": [
+    {
+      "number": "01",
+      "name": "Dehydrated White Onion",
+      "short": "Clean, bright, naturally sweet.",
+      "variants": [
+        "Flakes",
+        "Chopped",
+        "Minced",
+        "Granules",
+        "Powder"
+      ],
+      "tone": "saffron",
+      "visual": "rings",
+      "_key": "category-0",
+      "image": {
+        "path": "/prod images/white onion main.webp",
+        "alt": ""
+      }
+    },
+    {
+      "number": "02",
+      "name": "Dehydrated Pink Onion",
+      "short": "A rosy lift for modern kitchens.",
+      "variants": [
+        "Flakes",
+        "Chopped",
+        "Minced",
+        "Granules",
+        "Powder"
+      ],
+      "tone": "rose",
+      "visual": "petals",
+      "_key": "category-1",
+      "image": {
+        "path": "/prod images/pink onion main.webp",
+        "alt": ""
+      }
+    },
+    {
+      "number": "03",
+      "name": "Dehydrated Red Onion",
+      "short": "Deep colour. Full-bodied aroma.",
+      "variants": [
+        "Flakes",
+        "Chopped",
+        "Minced",
+        "Granules",
+        "Powder"
+      ],
+      "tone": "wine",
+      "visual": "red-rings",
+      "_key": "category-2",
+      "image": {
+        "path": "/prod images/red onion main.webp",
+        "alt": ""
+      }
+    },
+    {
+      "number": "04",
+      "name": "Dehydrated Garlic",
+      "short": "Pungent, warm and reliably consistent.",
+      "variants": [
+        "Flakes",
+        "Chopped",
+        "Minced",
+        "Granules",
+        "Powder"
+      ],
+      "tone": "cream",
+      "visual": "cloves",
+      "_key": "category-3",
+      "image": {
+        "path": "/prod images/garlic main.webp",
+        "alt": ""
+      }
+    },
+    {
+      "number": "05",
+      "name": "Fried Onion & Garlic",
+      "short": "Golden crunch with a kitchen-ready finish.",
+      "variants": [
+        "Fried Onion",
+        "Fried Garlic",
+        "Crisps",
+        "Toppings"
+      ],
+      "tone": "amber",
+      "visual": "crunch",
+      "_key": "category-4",
+      "image": {
+        "path": "/assets/vorix-showcase-fried.webp",
+        "alt": ""
+      }
+    },
+    {
+      "number": "06",
+      "name": "Spices, Herbs & Seasonings",
+      "short": "The finishing note that makes a dish yours.",
+      "variants": [
+        "Blends",
+        "Herbs",
+        "Chilli",
+        "Turmeric",
+        "Custom Mixes"
+      ],
+      "tone": "sage",
+      "visual": "spices",
+      "_key": "category-5",
+      "image": {
+        "path": "/assets/vorix-category-spices.webp",
+        "alt": ""
+      }
+    }
+  ],
+  "productDepth": [
+    {
+      "name": "White Onion",
+      "detail": "Sweet, versatile and clean",
+      "visual": "rings",
+      "items": [
+        {
+          "_key": "format-0",
+          "name": "White Onion Flakes",
+          "image": {
+            "path": "/prod images/White flakes.webp",
+            "alt": "White Onion Flakes ingredient"
+          }
+        },
+        {
+          "_key": "format-1",
+          "name": "White Onion Chopped",
+          "image": {
+            "path": "/prod images/White chopped.webp",
+            "alt": "White Onion Chopped ingredient"
+          }
+        },
+        {
+          "_key": "format-2",
+          "name": "White Onion Minced",
+          "image": {
+            "path": "/prod images/White minced.webp",
+            "alt": "White Onion Minced ingredient"
+          }
+        },
+        {
+          "_key": "format-3",
+          "name": "White Onion Granules",
+          "image": {
+            "path": "/prod images/White Granules.webp",
+            "alt": "White Onion Granules ingredient"
+          }
+        },
+        {
+          "_key": "format-4",
+          "name": "White Onion Powder",
+          "image": {
+            "path": "/prod images/White powder.webp",
+            "alt": "White Onion Powder ingredient"
+          }
+        }
+      ],
+      "_key": "range-0",
+      "image": {
+        "path": "/assets/vorix-category-white.webp",
+        "alt": ""
+      }
+    },
+    {
+      "name": "Pink Onion",
+      "detail": "Rosy, aromatic and nuanced",
+      "visual": "petals",
+      "items": [
+        {
+          "_key": "format-0",
+          "name": "Pink Onion Flakes",
+          "image": {
+            "path": "/prod images/Flakes.webp",
+            "alt": "Pink Onion Flakes ingredient"
+          }
+        },
+        {
+          "_key": "format-1",
+          "name": "Pink Onion Chopped",
+          "image": {
+            "path": "/prod images/Chopped.webp",
+            "alt": "Pink Onion Chopped ingredient"
+          }
+        },
+        {
+          "_key": "format-2",
+          "name": "Pink Onion Minced",
+          "image": {
+            "path": "/prod images/Minced.webp",
+            "alt": "Pink Onion Minced ingredient"
+          }
+        },
+        {
+          "_key": "format-3",
+          "name": "Pink Onion Granules",
+          "image": {
+            "path": "/prod images/Granules.webp",
+            "alt": "Pink Onion Granules ingredient"
+          }
+        },
+        {
+          "_key": "format-4",
+          "name": "Pink Onion Powder",
+          "image": {
+            "path": "/prod images/Powder.webp",
+            "alt": "Pink Onion Powder ingredient"
+          }
+        }
+      ],
+      "_key": "range-1",
+      "image": {
+        "path": "/assets/vorix-category-pink.webp",
+        "alt": ""
+      }
+    },
+    {
+      "name": "Red Onion",
+      "detail": "Full colour, full flavour",
+      "visual": "red-rings",
+      "items": [
+        {
+          "_key": "format-0",
+          "name": "Red Onion Flakes",
+          "image": {
+            "path": "/prod images/Red Flakes.webp",
+            "alt": "Red Onion Flakes ingredient"
+          }
+        },
+        {
+          "_key": "format-1",
+          "name": "Red Onion Chopped",
+          "image": {
+            "path": "/prod images/Red chopped.webp",
+            "alt": "Red Onion Chopped ingredient"
+          }
+        },
+        {
+          "_key": "format-2",
+          "name": "Red Onion Minced",
+          "image": {
+            "path": "/prod images/Red minced.webp",
+            "alt": "Red Onion Minced ingredient"
+          }
+        },
+        {
+          "_key": "format-3",
+          "name": "Red Onion Granules",
+          "image": {
+            "path": "/prod images/Red Granules.webp",
+            "alt": "Red Onion Granules ingredient"
+          }
+        },
+        {
+          "_key": "format-4",
+          "name": "Red Onion Powder",
+          "image": {
+            "path": "/prod images/Red powder.webp",
+            "alt": "Red Onion Powder ingredient"
+          }
+        }
+      ],
+      "_key": "range-2",
+      "image": {
+        "path": "/assets/vorix-category-red.webp",
+        "alt": ""
+      }
+    },
+    {
+      "name": "Garlic",
+      "detail": "Pungent, warm and dependable",
+      "visual": "cloves",
+      "items": [
+        {
+          "_key": "format-0",
+          "name": "Garlic Flakes",
+          "image": {
+            "path": "/prod images/Garlic flakes.webp",
+            "alt": "Garlic Flakes ingredient"
+          }
+        },
+        {
+          "_key": "format-1",
+          "name": "Garlic Chopped",
+          "image": {
+            "path": "/prod images/Garlic chopped.webp",
+            "alt": "Garlic Chopped ingredient"
+          }
+        },
+        {
+          "_key": "format-2",
+          "name": "Garlic Minced",
+          "image": {
+            "path": "/prod images/Garlic minced.webp",
+            "alt": "Garlic Minced ingredient"
+          }
+        },
+        {
+          "_key": "format-3",
+          "name": "Garlic Granules",
+          "image": {
+            "path": "/prod images/Garlic Granules.webp",
+            "alt": "Garlic Granules ingredient"
+          }
+        },
+        {
+          "_key": "format-4",
+          "name": "Garlic Powder",
+          "image": {
+            "path": "/prod images/Garlic powder.webp",
+            "alt": "Garlic Powder ingredient"
+          }
+        }
+      ],
+      "_key": "range-3",
+      "image": {
+        "path": "/assets/vorix-category-garlic.webp",
+        "alt": ""
+      }
+    },
+    {
+      "name": "Spices + Herbs",
+      "detail": "Blends made for your brief",
+      "visual": "spices",
+      "items": [
+        {
+          "_key": "format-0",
+          "name": "Chilli Powder",
+          "image": {
+            "path": "/assets/vorix-format-spices-chilli.webp",
+            "alt": "Chilli Powder ingredient"
+          }
+        },
+        {
+          "_key": "format-1",
+          "name": "Turmeric",
+          "image": {
+            "path": "/assets/vorix-format-spices-turmeric.webp",
+            "alt": "Turmeric ingredient"
+          }
+        },
+        {
+          "_key": "format-2",
+          "name": "Coriander",
+          "image": {
+            "path": "/assets/vorix-format-spices-coriander.webp",
+            "alt": "Coriander ingredient"
+          }
+        },
+        {
+          "_key": "format-3",
+          "name": "Herb Blends",
+          "image": {
+            "path": "/assets/vorix-format-spices-herbs.webp",
+            "alt": "Herb Blends ingredient"
+          }
+        },
+        {
+          "_key": "format-4",
+          "name": "Custom Seasonings",
+          "image": {
+            "path": "/assets/vorix-format-spices-custom-seasonings.webp",
+            "alt": "Custom Seasonings ingredient"
+          }
+        }
+      ],
+      "_key": "range-4",
+      "image": {
+        "path": "/assets/vorix-category-spices.webp",
+        "alt": ""
+      }
+    }
+  ],
+  "processSteps": [
+    {
+      "_key": "step-0",
+      "number": "01",
+      "name": "Arrival of Raw Material",
+      "description": "Freshly harvested onions sourced directly from Mahuva farms"
+    },
+    {
+      "_key": "step-1",
+      "number": "02",
+      "name": "Grading",
+      "description": "Inspected for size, quality and defects before processing"
+    },
+    {
+      "_key": "step-2",
+      "number": "03",
+      "name": "Washing",
+      "description": "Multi-stage cleaning removes impurities, ensures hygiene"
+    },
+    {
+      "_key": "step-3",
+      "number": "04",
+      "name": "Slicing",
+      "description": "Uniformly sliced for consistent drying and product quality"
+    },
+    {
+      "_key": "step-4",
+      "number": "05",
+      "name": "Drying",
+      "description": "Controlled temperature and airflow preserves colour and nutrients"
+    },
+    {
+      "_key": "step-5",
+      "number": "06",
+      "name": "Cooling",
+      "description": "Air-conditioned conveyor room maintains integrity post-drying"
+    },
+    {
+      "_key": "step-6",
+      "number": "07",
+      "name": "Separation & Sorting",
+      "description": "Huller machine removes skins; defective pieces sorted out"
+    },
+    {
+      "_key": "step-7",
+      "number": "08",
+      "name": "Packaging & Storage",
+      "description": "Moisture-proof packing in temperature-controlled storage"
+    }
+  ],
+  "pillars": [
+    {
+      "_key": "pillar-0",
+      "title": "Premium raw material",
+      "copy": "We source close to the crop, selecting for aroma, maturity and dependable yield."
+    },
+    {
+      "_key": "pillar-1",
+      "title": "Trusted quality",
+      "copy": "Internationally minded controls from first inspection through final packed lot."
+    },
+    {
+      "_key": "pillar-2",
+      "title": "Reliable delivery",
+      "copy": "Clear communication and production planning that keeps your line moving."
+    },
+    {
+      "_key": "pillar-3",
+      "title": "Competitive by design",
+      "copy": "Process discipline gives you a better ingredient without the premium waste."
+    }
+  ],
+  "faqs": [
+    {
+      "_key": "faq-0",
+      "question": "What ingredients does Vorix supply?",
+      "answer": "We supply dehydrated white, pink and red onion, garlic, fried onion and garlic, and spices, herbs and seasonings."
+    },
+    {
+      "_key": "faq-1",
+      "question": "Where are Vorix ingredients sourced and made?",
+      "answer": "Our ingredients are sourced close to the crop and processed in Mahuva, Gujarat, with controlled dehydration, sorting and packing."
+    },
+    {
+      "_key": "faq-2",
+      "question": "Which formats are available?",
+      "answer": "Depending on the product, formats include flakes, chopped, minced, granules, powder, fried formats and custom blends."
+    },
+    {
+      "_key": "faq-3",
+      "question": "Can Vorix support export requirements?",
+      "answer": "Yes. We work with food makers in India and international markets and can discuss specifications, documentation and production planning."
+    },
+    {
+      "_key": "faq-4",
+      "question": "How do I request a sample or quotation?",
+      "answer": "Use the inquiry form on the homepage or email hussain@nexusfoods.co.in for domestic enquiries and hasan@nexusfoods.co.in for export enquiries."
+    }
+  ],
+  "journal": [
+    {
+      "_key": "article-0",
+      "title": "Why dehydration protects more than shelf life",
+      "copy": "How thoughtful dehydration helps food makers preserve aroma, colour and production flexibility."
+    },
+    {
+      "_key": "article-1",
+      "title": "From crop character to specification",
+      "copy": "A closer look at the controls that turn a regional crop into a dependable ingredient."
+    },
+    {
+      "_key": "article-2",
+      "title": "Choosing the right onion format",
+      "copy": "Flakes, chopped, minced, granules or powder: a practical guide for product developers."
+    }
+  ],
+  "seo": {
+    "home": {
+      "title": "Vorix Food Ingredients — Quality, the power on our side",
+      "description": "Vorix Food Ingredients supplies premium dehydrated onions, garlic, spices and seasonings from Mahuva, Gujarat, India."
+    },
+    "products": {
+      "title": "Products — Dehydrated Onion, Garlic & Spices | Vorix Food Ingredients",
+      "description": "Dehydrated white, pink and red onion, garlic, fried onion and garlic, spices and custom seasonings in flakes, chopped, minced, granules and powder."
+    },
+    "about": {
+      "title": "About Vorix — Dehydrated Ingredients from Mahuva, Gujarat",
+      "description": "Founded in 2020 in Mahuva, Gujarat, Vorix brings precise dehydration, sorting and packing to a dependable ingredient supply chain."
+    },
+    "faq": {
+      "title": "FAQs — Vorix Food Ingredients",
+      "description": "Answers about Vorix dehydrated onions, garlic, spices, formats, sourcing and export supply."
+    },
+    "journal": {
+      "title": "Ingredient Journal — Vorix Food Ingredients",
+      "description": "Practical perspectives on dehydration, ingredient consistency and better food production from Vorix."
+    },
+    "contact": {
+      "title": "Contact — Vorix Food Ingredients",
+      "description": "Start an inquiry with Vorix Food Ingredients for domestic or export supply of dehydrated onion, garlic and spices."
+    }
+  }
+}

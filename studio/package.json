@@ -1,0 +1,26 @@
+{
+  "name": "vorix-content-studio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": { "node": ">=22.12" },
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "check": "tsc --noEmit",
+    "seed": "sanity exec scripts/seed.ts --with-user-token"
+  },
+  "dependencies": {
+    "sanity": "6.18.0",
+    "react": "^19.2.2",
+    "react-dom": "^19.2.2",
+    "styled-components": "^6.1.19"
+  },
+  "devDependencies": {
+    "typescript": "~5.6.3",
+    "@types/node": "^24.7.0",
+    "@types/react": "^19.2.1",
+    "@types/react-dom": "^19.2.1"
+  }
+}

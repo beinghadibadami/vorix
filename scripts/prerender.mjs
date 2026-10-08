@@ -16,23 +16,23 @@ const escapeAttr = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").repla
 const escapeText = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 
 function buildPage(url, meta) {
-  let html = template.replace('<div id="root"></div>', `<div id="root">${render(url)}</div>`);
+  let html = template.replace('<div id="root"></div>', () => `<div id="root">${render(url)}</div>`);
   if (!meta) return html;
 
   const canonical = `${SITE_URL}${meta.canonical ?? meta.path}`;
   html = html
-    .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeText(meta.title)}</title>`)
-    .replace(/(<meta name="description" content=")[^"]*(")/, `$1${escapeAttr(meta.description)}$2`)
-    .replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${escapeAttr(meta.title)}$2`)
-    .replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${escapeAttr(meta.description)}$2`)
-    .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${canonical}$2`)
-    .replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${canonical}$2`);
+    .replace(/<title>[\s\S]*?<\/title>/, () => `<title>${escapeText(meta.title)}</title>`)
+    .replace(/(<meta name="description" content=")[^"]*(")/, (_match, start, end) => `${start}${escapeAttr(meta.description)}${end}`)
+    .replace(/(<meta property="og:title" content=")[^"]*(")/, (_match, start, end) => `${start}${escapeAttr(meta.title)}${end}`)
+    .replace(/(<meta property="og:description" content=")[^"]*(")/, (_match, start, end) => `${start}${escapeAttr(meta.description)}${end}`)
+    .replace(/(<meta property="og:url" content=")[^"]*(")/, (_match, start, end) => `${start}${canonical}${end}`)
+    .replace(/(<link rel="canonical" href=")[^"]*(")/, (_match, start, end) => `${start}${canonical}${end}`);
 
   if (meta.jsonLd?.length) {
     const scripts = meta.jsonLd
       .map((obj) => `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, "\\u003c")}</script>`)
       .join("\n    ");
-    html = html.replace("</head>", `    ${scripts}\n  </head>`);
+    html = html.replace("</head>", () => `    ${scripts}\n  </head>`);
   }
   return html;
 }

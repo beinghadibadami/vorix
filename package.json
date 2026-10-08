@@ -4,10 +4,16 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "vite --host",
-    "build": "vite build && vite build --ssr src/entry-server.tsx --outDir ../dist/server && node scripts/prerender.mjs",
+    "dev": "node scripts/sync-content.mjs --development && vite --host",
+    "build": "node scripts/sync-content.mjs && vite build && vite build --ssr src/entry-server.tsx --outDir ../dist/server && node scripts/prerender.mjs",
     "preview": "vite preview --host",
-    "check": "tsc --noEmit",
+    "check": "node scripts/sync-content.mjs && tsc --noEmit",
+    "cms:sync": "node scripts/sync-content.mjs --development",
+    "cms:test": "node --test scripts/content-model.test.mjs",
+    "studio:dev": "npm --prefix studio run dev",
+    "studio:build": "npm --prefix studio run build",
+    "studio:seed": "npm --prefix studio run seed",
+    "studio:deploy": "npm --prefix studio run deploy",
     "format": "prettier --write ."
   },
   "dependencies": {

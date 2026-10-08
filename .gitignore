@@ -4,6 +4,10 @@
 
 # Build outputs
 dist/
+.cms-baseline/
+client/src/content/generated.json
+client/src/content/generated.json.tmp
+studio/.sanity/
 build/
 *.dist
 
